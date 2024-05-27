@@ -1,7 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    padding: 50px;
+    
     background-image: url(background_pattern.png);
   }
-  
+ 
+  #img_carousel {
+    height: 600px;
+}
