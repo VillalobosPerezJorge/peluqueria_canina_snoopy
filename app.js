@@ -32,6 +32,28 @@ app.get('/admin', (req, res) => {
   res.render('admin/admin');
 });
 
+//Ruta página login
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+
+//Ruta página usuario registrado
+app.get('/user', (req, res) => {
+  res.render('users/user');
+});
+
+//Ruta página usuario registrado - datos
+app.get('/datos', (req, res) => {
+  res.render('users/user_info');
+});
+
+//Ruta página usuario registrado - datos
+app.get('/servicios', (req, res) => {
+  res.render('services');
+});
+
+
 
 // MIME para style.css
 app.get('/style.css', function(req, res) {

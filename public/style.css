@@ -21,3 +21,7 @@ body {
   color: #583047; /* Cambia el color del texto al hacer hover */
 }
 
+img-comparison-slider {
+  outline: none;
+}
+
