@@ -53,6 +53,16 @@ app.get('/servicios', (req, res) => {
   res.render('services');
 });
 
+//Ruta página formulario registro usuario
+app.get('/registrarse', (req, res) => {
+  res.render('signup');
+});
+
+//Ruta página formulario inicio sesión
+app.get('/iniciar_sesion', (req, res) => {
+  res.render('login');
+});
+
 
 
 // MIME para style.css
