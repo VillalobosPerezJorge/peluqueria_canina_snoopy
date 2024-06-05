@@ -83,8 +83,6 @@ app.get('/completar_registro/:token?', async (req, res) => {
 
       const response_json = await response.json();
 
-      console.log(response_json);
-
       if(response_json.status == 'Success') {
         res.locals ={
           image_name: 'smile.webp',
