@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/public/st_contacto.css" type="text/css">
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 </head>
 
 <body>
@@ -60,7 +61,7 @@
       <br><br>
       <div class="row">
         <div class="col-6">
-          <form action="" name="registro" method="POST" onsubmit="return validarDatos();">
+          <form action="" name="registro" method="POST" id="registroForm">
             <div class="form-group">
               <label for="nombre"><strong>Nombre (*)</strong></label>
               <input class="form-control" type="text" name="nombre" id="nombre" required>
@@ -99,13 +100,15 @@
               <label for="pass2"><strong>Reingrese la Contraseña (*)</strong></label>
               <input class="form-control" type="password" name="pass2" id="pass2" required>
               <p class="text-danger" style="display:none" id="errorPass">El largo de la contraseña debe ser superior a 8 caracteres</p><br>
+              
+
             </div>
             <div class="form-group">
               <label for="suscribirse"><strong>¿Desea recibir información acerca de promociones?</strong></label>
               <input type="checkbox" name="suscribirse" id="suscribirse"><br><br>
             </div>
             <div class="" id="box-send">
-              <button class="btn-info" id="btn-enviar" type="submit" onclick="return verificarPassword()">Crear Cuenta</button><br><br>
+              <button class="btn-info" id="btn-enviar" type="submit">Crear Cuenta</button><br><br>
             </div>
           </form>
         </div>
@@ -119,8 +122,11 @@
 
   <!-- JavaScript dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/public/js/validaciones.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/public/js/validaciones.js"></script>
 
+
+</body>
 </html>
+

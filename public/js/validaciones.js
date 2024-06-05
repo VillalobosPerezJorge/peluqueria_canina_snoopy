@@ -1,5 +1,12 @@
+
+
+function obtenerDatos() {
+    // Tu lógica para obtener los datos
+    console.log("Obteniendo datos...");
+}
+
 //AL INICIAR GATILLARA Esto
-$(document).ready(function () {
+$(function () {
     obtenerDatos()
 });
 
@@ -76,4 +83,80 @@ function verificarPassword() {
         alert("Las contraseñas no coinciden")
         return false;
     }
+}
+
+
+
+// Función para manejar el envío del formulario de registro
+async function handleSubmit(event) {
+    event.preventDefault();
+
+    // Validaciones de frontend
+    if (!validarDatos()) {
+        return;
+    }
+
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const username = document.getElementById('username').value;
+    const direccion = document.getElementById('direccion').value;
+    const telefono = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
+    const pass1 = document.getElementById('pass1').value;
+    //const suscribirse = document.getElementById('suscribirse').checked;
+
+    const datos = {
+        nombre,
+        apellido,
+        username,
+        direccion,
+        telefono,
+        email,
+        pass1,
+        
+    };
+
+ 
+    
+    //REGISTRARSE
+    const submit_button = document.querySelector('#btn-enviar');
+
+    submit_button.addEventListener('click', async()=>{
+        const options = {
+            method: 'POST',
+                mode: 'cors',
+                headers: {
+                'Content-type': 'application/json; charset=utf-8',
+                },
+                body:{
+                        name:'nombre',
+                        surname:'apellido',
+                        username:'username',
+                        email:'password:',
+                        password:'pass1',
+                        phone:'telefono'
+        }
+    }
+    try {
+        const response = await fetch('https://api-pelu-canina-snoopy.onrender.com/api/user/register', options) 
+        const response_json = response.json();
+        const data = response.json();
+
+        if (!response.ok) {
+            alert(response_json.message);
+        } else {
+            // Error al registrar usuario
+            const errorData = await response.json();
+            Swal.fire('Error', errorData.message || 'No se pudo crear la cuenta', 'error');
+        }
+    } catch (exception) {
+        // Error al enviar la solicitud
+        console.error('Error al enviar la solicitud:', error);
+        Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+    }
+
+
+})
+
+
 }
