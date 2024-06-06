@@ -1,5 +1,12 @@
+
+
+function obtenerDatos() {
+    // Tu lógica para obtener los datos
+    console.log("Obteniendo datos...");
+}
+
 //AL INICIAR GATILLARA Esto
-$(document).ready(function () {
+$(function () {
     obtenerDatos()
 });
 
@@ -77,3 +84,69 @@ function verificarPassword() {
         return false;
     }
 }
+
+
+
+// Función para manejar el envío del formulario de registro
+
+const submit_button = document.querySelector('#btn-enviar');
+
+submit_button.addEventListener('click', async(event)=>{
+
+    event.preventDefault();
+
+    // Validaciones de frontend 
+
+    if (!validarDatos()) {
+        return;
+    }
+
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const username = document.getElementById('username').value;
+    const direccion = document.getElementById('direccion').value;
+    const telefono = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
+    const pass1 = document.getElementById('pass1').value;
+
+    const suscribirse = document.getElementById('suscribirse').checked;
+
+    const datos = {
+        name: nombre,
+        surname: apellido,
+        username,
+        address: direccion,
+        phone: telefono,
+        email,
+        password: pass1,
+        subscribed: suscribirse
+    };
+
+    const options = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+        'Content-type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify(datos)
+    }
+    
+    try {
+        const response = await fetch('https://api-pelu-canina-snoopy.onrender.com/api/user/register', options) 
+        const response_json = await response.json();
+
+        if (response.ok) {
+            // si TODO OK seguir aqui
+            Swal.fire('Success', response_json.message, 'success');
+        } else {
+            // si da ERROR seguir aqui
+            Swal.fire('Error', response_json.message);
+        }
+    } catch (exception) {
+        // Error al enviar la solicitud
+        console.error('Error al enviar la solicitud:', exception);
+        Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+    }
+
+});
+

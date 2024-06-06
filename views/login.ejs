@@ -81,12 +81,12 @@
         <form>
             <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico:</label>
-                <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico"
+                <input type="email" class="form-control" id="login_email" placeholder="Ingrese su correo electrónico"
                     required>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" required>
+                <input type="password" class="form-control" id="login_password" required>
             </div>
             <div class="checkbox">
                 <label>
@@ -95,14 +95,58 @@
                     <input type="checkbox" name="remember" value="1"> Recuérdame
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <button type="button" id="btn-login" class="btn btn-primary">Ingresar</button>
             
         </form>
     </div>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- JavaScript dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      document.querySelector('#btn-login').addEventListener('click', async (event) => {
+      event.preventDefault();
 
+      const username = document.getElementById('login_email').value;
+      const password = document.getElementById('login_password').value;
+
+      const datos = { username, password };
+
+      try {
+        const response = await fetch('https://api-pelu-canina-snoopy.onrender.com/api/user/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(datos)
+        });
+
+        
+        const responseJson = await response.json();
+        const user = responseJson.user;
+        const role =  user.role;
+        
+
+        if (response.ok) {
+          localStorage.setItem('token', responseJson.token);
+           localStorage.setItem('isLoggedIn', 'true');
+          Swal.fire('Success', responseJson.message, 'success').then(() => {
+            if (role === 'role-admin'){
+              window.location.href = '/admin';
+            }else{
+              window.location.href = '/';
+            }
+          });
+        } else {
+          Swal.fire('Error', responseJson.message, 'error');
+        }
+      } catch (error) {
+        console.error('Error al enviar la solicitud:', error);
+        Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
+      }
+    });
+  </script>
+</body>
 </html>
