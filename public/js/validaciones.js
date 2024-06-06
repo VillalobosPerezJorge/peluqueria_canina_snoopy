@@ -88,10 +88,15 @@ function verificarPassword() {
 
 
 // Función para manejar el envío del formulario de registro
-async function handleSubmit(event) {
+
+const submit_button = document.querySelector('#btn-enviar');
+
+submit_button.addEventListener('click', async(event)=>{
+
     event.preventDefault();
 
-    // Validaciones de frontend
+    // Validaciones de frontend 
+
     if (!validarDatos()) {
         return;
     }
@@ -103,60 +108,45 @@ async function handleSubmit(event) {
     const telefono = document.getElementById('telefono').value;
     const email = document.getElementById('email').value;
     const pass1 = document.getElementById('pass1').value;
-    //const suscribirse = document.getElementById('suscribirse').checked;
+
+    const suscribirse = document.getElementById('suscribirse').checked;
 
     const datos = {
-        nombre,
-        apellido,
+        name: nombre,
+        surname: apellido,
         username,
-        direccion,
-        telefono,
+        address: direccion,
+        phone: telefono,
         email,
-        pass1,
-        
+        password: pass1,
+        subscribed: suscribirse
     };
 
- 
-    
-    //REGISTRARSE
-    const submit_button = document.querySelector('#btn-enviar');
-
-    submit_button.addEventListener('click', async()=>{
-        const options = {
-            method: 'POST',
-                mode: 'cors',
-                headers: {
-                'Content-type': 'application/json; charset=utf-8',
-                },
-                body:{
-                        name:'nombre',
-                        surname:'apellido',
-                        username:'username',
-                        email:'password:',
-                        password:'pass1',
-                        phone:'telefono'
-        }
+    const options = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+        'Content-type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify(datos)
     }
+    
     try {
         const response = await fetch('https://api-pelu-canina-snoopy.onrender.com/api/user/register', options) 
-        const response_json = response.json();
-        const data = response.json();
+        const response_json = await response.json();
 
-        if (!response.ok) {
-            alert(response_json.message);
+        if (response.ok) {
+            // si TODO OK seguir aqui
+            Swal.fire('Success', response_json.message, 'success');
         } else {
-            // Error al registrar usuario
-            const errorData = await response.json();
-            Swal.fire('Error', errorData.message || 'No se pudo crear la cuenta', 'error');
+            // si da ERROR seguir aqui
+            Swal.fire('Error', response_json.message);
         }
     } catch (exception) {
         // Error al enviar la solicitud
-        console.error('Error al enviar la solicitud:', error);
+        console.error('Error al enviar la solicitud:', exception);
         Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
     }
 
+});
 
-})
-
-
-}

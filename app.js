@@ -69,6 +69,44 @@ app.get('/iniciar_sesion', (req, res) => {
   res.render('login');
 });
 
+
+app.get('/completar_registro/:token?', async (req, res) => {
+    if(!req.params.token || req.params.token == '') return res.render('index');
+
+    const token = req.params.token;
+
+    try {
+      const response = await fetch(`https://api-pelu-canina-snoopy.onrender.com/api/user/validateUserRegister/${token}`, {
+        method: 'GET',
+        mode: 'cors',
+      });
+
+      const response_json = await response.json();
+
+      if(response_json.status == 'Success') {
+        res.locals ={
+          image_name: 'smile.webp',
+          title: 'Registro exitoso',
+          detail: 'Ya puedes acceder a tu cuenta de usuario'
+        }
+      }else{
+        res.locals ={
+          image_name: 'sad.webp',
+          title: 'No se pudo completar el registro',
+          detail: 'Lo sentimos, hubo un problema al registrar al usuario, intente nuevamente'
+        }        
+      }
+
+      res.render('signup-complete');
+
+    } catch (error) {
+      console.error(error);
+      res.render('index');
+    }
+
+})
+
+
 // Rutas de autenticación
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
