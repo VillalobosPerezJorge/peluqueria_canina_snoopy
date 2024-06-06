@@ -14,6 +14,13 @@
             border-radius: 0;
         }
 
+        body {
+            text-justify: auto;
+            font-family: 'Lucida Sans';
+            background-image: url('/public/fondo.jpg');
+            background-repeat: repeat;
+        }
+
         footer {
             background-color: #f2f2f2;
             padding: 25px;
@@ -28,6 +35,14 @@
             .carousel-caption {
                 display: none;
             }
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -73,8 +88,7 @@
   </nav>
   <!-- Navigation bar -->
 
-
-    <div class="container mt-5">
+    <div class="container mt-5 form-container">
         <h2>Iniciar sesión</h2>
         <p>Ingrese sus credenciales para iniciar sesión.</p>
 
@@ -90,17 +104,13 @@
             </div>
             <div class="checkbox">
                 <label>
-                    
                     <a href="./password-recovery">¿Olvidaste tu contraseña?</a>
                     <input type="checkbox" name="remember" value="1"> Recuérdame
                 </label>
             </div>
             <button type="button" id="btn-login" class="btn btn-primary">Ingresar</button>
-            
         </form>
     </div>
-
-
 
     <!-- JavaScript dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -149,4 +159,5 @@
     });
   </script>
 </body>
+
 </html>

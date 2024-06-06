@@ -125,6 +125,14 @@ app.get('/style.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/style.css'));
 });
 
+app.get('/st_contacto.css', (req, res) => {
+  res.set('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'public/st_contacto.css'));
+});
+
+
+app.use(express.static(__dirname + 'public'));
+
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
