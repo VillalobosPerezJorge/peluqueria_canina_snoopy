@@ -25,6 +25,8 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+
+
 // Rutas para las vistas
 app.get('/', (req, res) => {
   res.render('index');
@@ -50,12 +52,9 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
-app.get('/user', (req, res) => {
-  res.render('users/user');
-});
 
-app.get('/datos', (req, res) => {
-  res.render('users/user_info');
+app.get('/mi_perfil', (req, res) => {
+  res.render('users/user_profile');
 });
 
 app.get('/servicios', (req, res) => {
@@ -91,3 +90,6 @@ app.post('/registrarse', (req, res) => {
   // Después de completar el registro, redirige al usuario a la página de inicio de sesión
   res.redirect('/iniciar_sesion');
 });
+
+
+
