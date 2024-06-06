@@ -2,7 +2,9 @@ const axios = require('axios');
 
 const apiClient = axios.create({
   baseURL: process.env.API_BASE_URL || 'https://api-pelu-canina-snoopy.onrender.com', // URL base de la API
-  timeout: 1000, // Tiempo de espera de las peticiones
+
+  timeout: 60000, // Tiempo de espera de las peticiones
+
 });
 
 module.exports = apiClient;
