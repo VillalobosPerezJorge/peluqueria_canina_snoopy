@@ -88,6 +88,7 @@ function verificarPassword() {
 
 
 // Función para manejar el envío del formulario de registro
+
 const submit_button = document.querySelector('#btn-enviar');
 
 submit_button.addEventListener('click', async(event)=>{
@@ -95,6 +96,7 @@ submit_button.addEventListener('click', async(event)=>{
     event.preventDefault();
 
     // Validaciones de frontend 
+
     if (!validarDatos()) {
         return;
     }
@@ -106,6 +108,7 @@ submit_button.addEventListener('click', async(event)=>{
     const telefono = document.getElementById('telefono').value;
     const email = document.getElementById('email').value;
     const pass1 = document.getElementById('pass1').value;
+
     const suscribirse = document.getElementById('suscribirse').checked;
 
     const datos = {
@@ -146,3 +149,4 @@ submit_button.addEventListener('click', async(event)=>{
     }
 
 });
+

@@ -70,6 +70,7 @@ app.get('/iniciar_sesion', (req, res) => {
   res.render('login');
 });
 
+
 app.get('/completar_registro/:token?', async (req, res) => {
     if(!req.params.token || req.params.token == '') return res.render('index');
 
@@ -105,6 +106,7 @@ app.get('/completar_registro/:token?', async (req, res) => {
     }
 
 })
+
 
 // Rutas de autenticación
 const authRoutes = require('./routes/auth');
