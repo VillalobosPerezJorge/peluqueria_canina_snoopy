@@ -104,7 +104,15 @@ app.get('/completar_registro/:token?', async (req, res) => {
       res.render('index');
     }
 
-})
+});
+
+app.get('/password-recovery', (req, res) => {
+    res.render('password-recovery');
+});
+
+app.get('/password-change/:token?', (req, res) => {
+  res.render('password-change');
+});
 
 
 // Rutas de autenticación
