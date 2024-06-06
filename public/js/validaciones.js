@@ -108,6 +108,14 @@ submit_button.addEventListener('click', async(event)=>{
     const pass1 = document.getElementById('pass1').value;
     const suscribirse = document.getElementById('suscribirse').checked;
 
+    let subscribed;
+
+    if(suscribirse) {
+        subscribed = true;
+    }else{
+        subscribed = false;
+    }
+
     const datos = {
         name: nombre,
         surname: apellido,
@@ -116,7 +124,7 @@ submit_button.addEventListener('click', async(event)=>{
         phone: telefono,
         email,
         password: pass1,
-        subscribed: suscribirse
+        subscribed
     };
 
     const options = {
