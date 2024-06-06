@@ -113,7 +113,7 @@ app.get('/password-recovery', (req, res) => {
 
 app.get('/password-change/:token?', (req, res) => {
   res.render('password-change');
-})
+});
 
 
 // Rutas de autenticación
