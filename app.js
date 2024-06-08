@@ -25,6 +25,8 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+
+
 // Rutas para las vistas
 app.get('/', (req, res) => {
   res.render('index');
@@ -50,12 +52,9 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
-app.get('/user', (req, res) => {
-  res.render('users/user');
-});
 
-app.get('/datos', (req, res) => {
-  res.render('users/user_info');
+app.get('/mi_perfil', (req, res) => {
+  res.render('users/user_profile');
 });
 
 app.get('/servicios', (req, res) => {
@@ -77,7 +76,7 @@ app.get('/completar_registro/:token?', async (req, res) => {
     const token = req.params.token;
 
     try {
-      const response = await fetch(`https://api-pelu-canina-snoopy.onrender.com/api/user/validateUserRegister/${token}`, {
+      const response = await fetch(`http://18.231.252.59/api/user/validateUserRegister/${token}`, {
         method: 'GET',
         mode: 'cors',
       });
@@ -126,6 +125,14 @@ app.get('/style.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/style.css'));
 });
 
+app.get('/st_contacto.css', (req, res) => {
+  res.set('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'public/st_contacto.css'));
+});
+
+
+app.use(express.static(__dirname + 'public'));
+
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
@@ -137,3 +144,6 @@ app.post('/registrarse', (req, res) => {
   // Después de completar el registro, redirige al usuario a la página de inicio de sesión
   res.redirect('/iniciar_sesion');
 });
+
+
+
