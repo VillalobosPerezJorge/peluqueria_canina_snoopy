@@ -76,7 +76,7 @@ app.get('/completar_registro/:token?', async (req, res) => {
     const token = req.params.token;
 
     try {
-      const response = await fetch(`https://api-pelu-canina-snoopy.onrender.com/api/user/validateUserRegister/${token}`, {
+      const response = await fetch(`http://18.231.252.59/api/user/validateUserRegister/${token}`, {
         method: 'GET',
         mode: 'cors',
       });
@@ -104,7 +104,15 @@ app.get('/completar_registro/:token?', async (req, res) => {
       res.render('index');
     }
 
-})
+});
+
+app.get('/password-recovery', (req, res) => {
+    res.render('password-recovery');
+});
+
+app.get('/password-change/:token?', (req, res) => {
+  res.render('password-change');
+});
 
 
 // Rutas de autenticación
@@ -116,6 +124,14 @@ app.get('/style.css', (req, res) => {
   res.set('Content-Type', 'text/css');
   res.sendFile(path.join(__dirname, 'public/style.css'));
 });
+
+app.get('/st_contacto.css', (req, res) => {
+  res.set('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'public/st_contacto.css'));
+});
+
+
+app.use(express.static(__dirname + 'public'));
 
 // Iniciar el servidor
 app.listen(port, () => {
