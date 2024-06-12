@@ -48,6 +48,10 @@ app.get('/admin', (req, res) => {
   res.render('admin/admin');
 });
 
+app.get('/admin_galeria', (req, res) => {
+  res.render('admin/admin_gallery');
+});
+
 app.get('/login', (req, res) => {
   res.render('login');
 });
@@ -113,6 +117,7 @@ app.get('/password-recovery', (req, res) => {
 app.get('/password-change/:token?', (req, res) => {
   res.render('password-change');
 });
+
 
 
 // Rutas de autenticación

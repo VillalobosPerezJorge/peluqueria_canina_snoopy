@@ -133,19 +133,17 @@
           body: JSON.stringify(datos)
         });
 
-        
         const responseJson = await response.json();
-        const user = responseJson.user;
-        const role =  user.role;
-        
 
         if (response.ok) {
           localStorage.setItem('token', responseJson.token);
-           localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('isLoggedIn', 'true');
           Swal.fire('Success', responseJson.message, 'success').then(() => {
-            if (role === 'role-admin'){
+            const user = responseJson.user;
+            const role = user.role;
+            if (role === 'role-admin') {
               window.location.href = '/admin';
-            }else{
+            } else {
               window.location.href = '/';
             }
           });
