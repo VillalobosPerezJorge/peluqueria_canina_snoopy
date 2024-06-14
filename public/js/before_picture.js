@@ -8,28 +8,20 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
 
     const formData = new FormData();
     formData.append('id', postId);
-    formData.append('file', imageFile);
+    formData.append('image', imageFile);
 
     const options = {
         method: 'PATCH', 
         mode: 'cors', 
-        headers: {
-            'Authorization': token,
-            
-        },
         body: formData, 
     };
-
-    console.log(imageFile);
-    console.log(token);
-    console.log(postId);
 
     try {
         
         const response = await fetch('http://18.231.252.59/api/post/updateimage1', options);
         const responseJson = await response.json(); 
 
-        if (response.ok) {
+        if (responseJson.status === 'Success') {
             console.log('Respuesta exitosa:', responseJson); 
             Swal.fire('Success', responseJson.message, 'success').then(() => {
                 localStorage.setItem('postId', responseJson.post._id); 
