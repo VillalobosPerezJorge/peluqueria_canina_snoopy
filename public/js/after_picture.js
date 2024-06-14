@@ -8,7 +8,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
 
     const formData = new FormData();
     formData.append('id', postId);
-    formData.append('file', imageFile);
+    formData.append('image', imageFile);
 
     const options = {
         method: 'PATCH', 
@@ -31,13 +31,12 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
 
         if (response.ok) {
             Swal.fire('Success', responseJson.message, 'success').then(() => {
-                 // Guarda el ID del post en localStorage
-             localStorage.setItem('postId', responseJson.post._id);
+                
 
              // Muestra el postId en consola
-            console.log('ID del post en localStorage:', responseJson.post._id);
+            console.log('ID del post en localStorage:', postId);
             Swal.fire('Success', responseJson.message, 'success');
-            window.location.href = `/admin?postId=${responseJson.post._id}`;
+            window.location.href = `/admin?postId=${postId}`;
             });
         } else {
             Swal.fire('Error', responseJson.message, 'error');

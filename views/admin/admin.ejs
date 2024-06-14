@@ -45,16 +45,34 @@
           <div class="card-body">
             <h5 class="card-title">Gestión de Usuarios</h5>
             <p class="card-text">Añadir, editar o eliminar usuarios.</p>
-            <a href="#" class="btn btn-primary">Ir a Editor de Usuarios</a>
+            <div class="btn-group">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                Selecciona una opción para los usuarios
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/admin_galeria">Agrega un nuevo usuario administrador</a></li>
+                <li><a class="dropdown-item" href="#">Editar datos de un usuario</a></li>
+                <li><a class="dropdown-item" href="#">Elimiar un usuario</a></li>
+              </ul>
+            </div> 
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">Gestión de Servicios</h5>
-            <p class="card-text">Añadir, editar o eliminar servicios ofrecidos.</p>
-            <a href="#" class="btn btn-primary">Ir a Editor de Servicios</a>
+            <h5 class="card-title">Gestión de Promociones</h5>
+            <p class="card-text">Añadir, editar o eliminar promociones del banner.</p>
+            <div class="btn-group">
+              <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                Selecciona una opción del banner
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Subir un post al banner</a></li>
+                <li><a class="dropdown-item" href="#">Ver posts del banner</a></li>
+                <li><a class="dropdown-item" href="#">Ver posts del banner inactivos</a></li>
+              </ul>
+            </div> 
           </div>
         </div>
       </div>
@@ -62,12 +80,27 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">Galería</h5>
-            <p class="card-text">Subir, editar o eliminar fotografías de la galería.</p>
-            <a href="/admin_galeria" class="btn btn-primary">Ir a Editor de Galería</a>
+            <p class="card-text">Subir, editar o eliminar fotografías de la galería. Son tres pasos: </p>
+            <p>Paso 1: Escribir el nombre y descripción de la mascota</p>
+            <p>Paso 2: Subir la foto antes del servicio</p>
+            <p>Paso 3: Subir la foto después del servicio</p>
+            <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+              Selecciona una opción de la galería
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/admin_galeria">Subir un post comparativo a la galería</a></li>
+              <li><a class="dropdown-item" href="#">Ver posts</a></li>
+              <li><a class="dropdown-item" href="#">Ver posts inactivos</a></li>
+            </ul>
+          </div> 
+
           </div>
         </div>
     
   </div>
+
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
