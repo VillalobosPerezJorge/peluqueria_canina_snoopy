@@ -1,43 +1,44 @@
 document.querySelector('#btn-upload').addEventListener('click', async (event) => {
     event.preventDefault();
+    const postId = localStorage.getItem('postId');
 
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-   
-
-
+    const imageFile = document.getElementById('image2').files[0];
     const token = localStorage.getItem('token');
-    const owner = ""; // El campo `owner` es opcional
 
-   const datos = {
-    title: title,
-    description: description,
-    owner: owner,
-   }
+
+    const formData = new FormData();
+    formData.append('id', postId);
+    formData.append('file', imageFile);
 
     const options = {
-        method: 'POST',
-        mode: 'cors',
+        method: 'PATCH', 
+        mode: 'cors', 
         headers: {
-        'Content-type': 'application/json; charset=utf-8',
-        'Authorization': token
+            'Authorization': token,
+            
         },
-        body: JSON.stringify(datos)
-    }
-    
+        body: formData, 
+    };
+
+    console.log(imageFile);
+    console.log(token);
+    console.log(postId);
 
     try {
-        const response = await fetch('http://18.231.252.59/api/post/register', options)
+        
+        const response = await fetch('http://18.231.252.59/api/post/updateimage2', options);
         const responseJson = await response.json();
 
         if (response.ok) {
-             // Guarda el ID del post en localStorage
+            Swal.fire('Success', responseJson.message, 'success').then(() => {
+                 // Guarda el ID del post en localStorage
              localStorage.setItem('postId', responseJson.post._id);
 
              // Muestra el postId en consola
             console.log('ID del post en localStorage:', responseJson.post._id);
             Swal.fire('Success', responseJson.message, 'success');
-            window.location.href = `/admin_antes?postId=${responseJson.post._id}`;
+            window.location.href = `/admin?postId=${responseJson.post._id}`;
+            });
         } else {
             Swal.fire('Error', responseJson.message, 'error');
         }
@@ -46,6 +47,3 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
         Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
     }
 });
-
-
-

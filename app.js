@@ -52,6 +52,15 @@ app.get('/admin_galeria', (req, res) => {
   res.render('admin/admin_gallery');
 });
 
+app.get('/admin_antes', (req, res) => {
+  res.render('admin/admin_before');
+});
+
+app.get('/admin_despues', (req, res) => {
+  res.render('admin/admin_after');
+});
+
+
 app.get('/login', (req, res) => {
   res.render('login');
 });
