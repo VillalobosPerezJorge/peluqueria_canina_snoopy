@@ -18,48 +18,16 @@
      body{
     text-justify: auto;
     font-family: 'Lucida Sans';
-    background-image: url(/public/fondo2.jpg);
-}
+    background-image: url(/public/images/patron_patitas\ 70x70.png);
+    }
 
-     </style>
-</head>
-<body>
+  </style>
 
-  <!-- Navigation bar -->
-  <nav class="navbar navbar-expand-lg fs-5" style="background-color: #E799A3;">
-    <div class="container-fluid">
-      <a class="navbar-brand fs-2" href="/">
-        <img src="/public/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-        Peluquería Canina Snoopy
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/nosotros">Sobre nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/galeria">Galería de trabajos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/contacto">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/servicios">Servicios</a>
-          </li>
-        </ul>
-        <div id="auth-buttons" class="d-flex">
-          <div class="btn-group">
-            <a href="https://api.whatsapp.com/message/IKSQLN7ZJCN2N1?autoload=1&app_absent=0" class="me-4 text-reset"><button class="btn btn-success me-2 fs-5" type="button" href="">¡Agenda una hora!</button></a>
-            
-            <a href="/iniciar_sesion"><button class="btn btn-outline-primary me-2 fs-5" type="button">Iniciar sesión</button></a>
-            <a href="/registrarse"><button class="btn btn-outline-primary me-2 fs-5" type="button">Registrarse</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- Navigation bar -->
+<!-- Navigation bar -->
+<%- include('./partials/navigation.ejs') %>
+<!-- Navigation bar -->
+
+<script src="../public/js/general-user.js"></script>
+
+</body>
+</html>

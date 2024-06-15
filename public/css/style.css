@@ -1,0 +1,27 @@
+@import "bootstrap";
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    
+    background-image: url(public/images/patron_patitas\ 70x70.png);
+  }
+ 
+  #img_carousel {
+    height: 600px;
+}
+
+.btn-outline-primary {
+  color: #3d1a38; /* Cambia el color del texto */
+  border-color: #d10fa1; /* Cambia el color del borde */
+}
+
+.btn-outline-primary:hover {
+  background-color: #d82a64; /* Cambia el color de fondo al hacer hover */
+  color: #583047; /* Cambia el color del texto al hacer hover */
+}
+
+img-comparison-slider {
+  outline: none;
+}
+
