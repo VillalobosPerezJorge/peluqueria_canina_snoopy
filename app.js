@@ -76,7 +76,7 @@ app.get('/completar_registro/:token?', async (req, res) => {
     const token = req.params.token;
 
     try {
-      const response = await fetch(`https://api-pelu-canina-snoopy.onrender.com/api/user/validateUserRegister/${token}`, {
+      const response = await fetch(`http://18.231.252.59/api/user/validateUserRegister/${token}`, {
         method: 'GET',
         mode: 'cors',
       });
