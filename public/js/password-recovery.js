@@ -25,7 +25,7 @@ btn_recuperar.addEventListener('click', async (event) => {
     }
 
     try {
-        const response = await fetch('https://api-pelu-canina-snoopy.onrender.com/api/user/passwordChange', options);
+        const response = await fetch('http://18.231.252.59/api/user/passwordChange', options);
         const response_json = await response.json();
 
         if(response_json.status == 'Success'){
