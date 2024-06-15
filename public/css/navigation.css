@@ -1,0 +1,10 @@
+@import url('../fonts/gliker/stylesheet.css');
+
+.navbar {
+    background-color: #E34689 !important;
+}
+
+.navbar-brand {
+    font-family: 'gliker';
+    font-weight: bold;
+}

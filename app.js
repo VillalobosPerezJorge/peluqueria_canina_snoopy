@@ -36,7 +36,7 @@ app.get('/contacto', (req, res) => {
   res.render('contact');
 });
 
-app.get('/galeria', (req, res) => {
+app.get('/galeria/:page?', (req, res) => {
   res.render('gallery');
 });
 

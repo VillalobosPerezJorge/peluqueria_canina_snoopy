@@ -1,8 +1,20 @@
+@import url('../fonts/gliker/stylesheet.css');
+
 body {
     text-justify: auto;
     font-family: 'Lucida Sans';
-    background-image: url('/public/patron_patitas\ 70x70.png');
+    background-image: url('/public/images/patron_patitas\ 70x70.png');
     background-repeat: repeat; 
+}
+
+#main {
+    background-color: #FFED9C !important;
+}
+
+#title {
+    font-family: 'gliker';
+    font-weight: bold;
+    color: #DA0E83 !important;
 }
 
 .navbar {
@@ -13,6 +25,44 @@ body {
 footer {
     background-color: #f2f2f2;
     padding: 25px;
+}
+
+.card {
+    width: 45% !important;
+    background-color: #ED7E90 !important;
+    border-radius: 15px !important;
+    box-shadow: 2px 2px 5px black, 3px 3px 5px black, 4px 4px 5px black, 5px 5px 5px black !important;
+
+    .title {
+        font-family: 'gliker';
+    }
+}
+
+.page-link{
+    background-color: #fdcf00 !important;
+    color: #DA0E83 !important;
+    border-color: #DA0E83 !important;
+
+    &:hover {
+        background-color: #DA0E83 !important;
+        color: #fdcf00 !important;
+    }
+
+    &:active {
+        background-color: #f594cb !important;
+        color: #fdcf00 !important;
+    }
+
+    &.active {
+        background-color: #ff0090 !important;
+        color: #fdcf00 !important;
+    }
+
+    &.disabled {
+        background-color: #d3c58a !important;
+        color: #79714d !important;
+        border-color: #79714d !important;
+    }
 }
 
 @media (max-width: 800px) {

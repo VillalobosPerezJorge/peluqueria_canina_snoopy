@@ -2,7 +2,7 @@
 body{
     text-justify: auto;
     font-family: 'Lucida Sans';
-    background-image: url(/public/fondo2.jpg);
+    background-image: url(/public/images/patron_patitas\ 70x70.png);
 }
 
 li a:hover {
@@ -28,3 +28,8 @@ h1,h2, h3{
     margin: 0;
     overflow: hidden;
 }
+
+.navbar {
+    margin: 0;
+    border-radius: 0;
+  }
