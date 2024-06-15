@@ -9,6 +9,8 @@ body {
 
 #main {
     background-color: #FFED9C !important;
+    max-width: none !important;
+    width: 80% !important;
 }
 
 #title {
@@ -29,6 +31,7 @@ footer {
 
 .card {
     width: 45% !important;
+    max-width: 600px !important;
     background-color: #ED7E90 !important;
     border-radius: 15px !important;
     box-shadow: 2px 2px 5px black, 3px 3px 5px black, 4px 4px 5px black, 5px 5px 5px black !important;

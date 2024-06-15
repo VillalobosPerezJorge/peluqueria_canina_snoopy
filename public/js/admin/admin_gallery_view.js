@@ -30,6 +30,11 @@ window.onload = async () => {
           <p class="title card-text fw-bold fs-3 my-3">${post.title}</p>
           <p class="title card-text fs-4 my-3">${post.description}</p>
         </div>
+
+        <div class="buttons w-100 d-flex flex-row justify-content-around mt-2 mb-4">
+          <a href="#"><button class="btn btn-warning fs-5 fw-bold">Editar</button></a>
+          <button type="button" value='${post._id}' class="boton_eliminar btn btn-danger fs-5 fw-bold">Inhabilitar</button>
+        </div>
       </div>`).join('');
 
       let pagesArray = [];
@@ -41,7 +46,6 @@ window.onload = async () => {
         } else if(i == 1) {
           pagesArray = [`<li class="page-item"><a class="page-link ${dataPage == 1 ? 'active' : ''}" href="/galeria/1">1</a></li>`]
         }
-
       }
 
       pagesArray.unshift(`
@@ -86,9 +90,49 @@ window.onload = async () => {
           loader.setAttribute('style', 'display:none');
           galeria.innerHTML = elementosHTML;
           paginationDiv.innerHTML = pagination;
+
+          const btns = document.querySelectorAll('.boton_eliminar');
+          
+          btns.forEach(btn => {
+            // Acción del boton eliminar
+            btn.addEventListener('click', async e => {
+              const postId = e.target.value;
+
+              e.preventDefault();
+
+              try {
+                const response = await fetch(`http://18.231.252.59/api/post/changeStatus/${postId}`,
+                  {
+                    method: 'Post',
+                    mode: 'cors'
+                  }
+                );
+                const responseJson = await response.json();
+
+                if(responseJson.status === 'Success'){
+                  Swal.fire('Success', responseJson.message, 'success');
+                  setTimeout(() => {
+                    window.location.reload();
+                  },2000);
+                }else{
+                  Swal.fire('Error', responseJson.message, 'error');
+                }
+              } catch (error) {
+                Swal.fire('Error', 'Error al ejecutar la funcion', 'error');
+              }
+
+            })
+          });
+
       }, 2000);
         
     } catch (error) {
         console.log(error);
     }
+
+
+    
+    
+    
 }
+

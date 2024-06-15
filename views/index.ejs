@@ -33,7 +33,7 @@
   </style>
 
 <!-- Navigation bar -->
-<%- include('./partials/navigation.ejs') %>
+  <%- include('./partials/navigation.ejs') %>
 <!-- Navigation bar -->
 
   <div class="col-md-16 mx-auto">
@@ -75,25 +75,7 @@
     <!-- Fin Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const authButtons = document.getElementById('auth-buttons');
-
-        if (isLoggedIn) {
-          authButtons.innerHTML = `
-            <a href="/mi_perfil"><button class="btn btn-outline-primary me-2 fs-5" type="button">Mi Perfil</button></a>
-            <button id="btn-logout" class="btn btn-outline-primary me-2 fs-5" type="button">Cerrar Sesión</button>
-          `;
-
-          document.getElementById('btn-logout').addEventListener('click', () => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = '/';
-          });
-        }
-      });
-    </script>
+    <script src="../public/js/general-user.js"></script>
 </body>
 
 </html>
