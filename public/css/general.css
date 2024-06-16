@@ -16,5 +16,42 @@ body {
 #main {
     background-color: #FFED9C !important;
     max-width: none !important;
+    min-width: none !important;
     width: 80% !important;
 }
+
+@media (max-width: 768px){
+
+    #nav-logo {
+        width: 180px !important;
+    }
+
+    #main {
+        width: 100% !important;
+    }
+
+    #auth-buttons{
+        flex-direction: column !important;
+        align-items: center;
+        gap: 10px;
+
+        a, .btn-group{
+            width: 90% !important;
+            margin-right: 0rem !important;
+
+            button{
+                width: 100% !important;
+                margin-right: 0rem !important;
+            }
+
+            #btn-logout{
+                border-radius: 7px !important;
+                width: 100% !important;
+                margin-right: 0rem !important;
+            }
+        }
+
+    }
+
+}
+

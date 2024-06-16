@@ -40,3 +40,27 @@
         box-shadow: 0px 0px 5px black inset;
     }
 }
+
+@media (max-width: 768px){
+
+    #auth-buttons{
+        flex-direction: column !important;
+        gap: 10px;
+
+        a, .btn-group{
+            width: 90% !important;
+
+            button{
+                width: 100% !important;
+            }
+
+            #btn-logout{
+                border-radius: 7px !important;
+                width: 100% !important;
+                margin-right: 0rem !important;
+            }
+        }
+
+    }
+
+}
