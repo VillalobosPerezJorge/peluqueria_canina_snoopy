@@ -60,6 +60,11 @@ footer {
             background-color: #ffdb6e !important;
             text-shadow: 0px 0px 5px yellow !important;
         }
+
+        .boton_habilitar:hover {
+            background-color: #5ee4ff !important;
+            text-shadow: 0px 0px 5px #c0f4ff !important;
+        }
         
             
     }

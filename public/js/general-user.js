@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('btn-logout').addEventListener('click', () => {
         localStorage.removeItem('token');
         localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('role');
         window.location.href = '/';
       });
     }
