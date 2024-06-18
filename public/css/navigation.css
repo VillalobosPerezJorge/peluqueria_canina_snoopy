@@ -1,0 +1,66 @@
+@import url('../fonts/gliker/stylesheet.css');
+
+.navbar {
+    background-color: #E34689 !important;
+}
+
+.navbar-brand {
+    font-family: 'gliker';
+    font-weight: bold;
+}
+
+.admin-title {
+    font-size: 0.8em !important;
+}
+
+#btn-logout{
+    border-radius: 10px !important;
+    background-color: rgb(146, 0, 0) !important;
+    color: white !important;
+
+    &:hover {
+        background-color: rgb(206, 0, 0) !important;
+    }
+
+    &:active {
+        box-shadow: 0px 0px 5px black inset;
+    }
+}
+
+.btn-panel{
+    border-radius: 10px !important;
+    background-color: rgb(255, 196, 0) !important;
+    color: rgb(0, 0, 0) !important;
+
+    &:hover {
+        background-color: rgb(252, 221, 122) !important;
+    }
+
+    &:active {
+        box-shadow: 0px 0px 5px black inset;
+    }
+}
+
+@media (max-width: 768px){
+
+    #auth-buttons{
+        flex-direction: column !important;
+        gap: 10px;
+
+        a, .btn-group{
+            width: 90% !important;
+
+            button{
+                width: 100% !important;
+            }
+
+            #btn-logout{
+                border-radius: 7px !important;
+                width: 100% !important;
+                margin-right: 0rem !important;
+            }
+        }
+
+    }
+
+}
