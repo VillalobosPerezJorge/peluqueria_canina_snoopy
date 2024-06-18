@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use(cors());
 
 
 // Configuración del motor de plantillas EJS
@@ -131,6 +134,10 @@ app.get('/admin_despues', (req, res) => {
 
 app.get('/admin/vista-galeria/:page?', (req, res) => {
   res.render('admin/admin_gallery_view');
+});
+
+app.get('/admin/vista-galeria-inactivos/:page?', (req, res) => {
+  res.render('admin/admin_gallery_disabled');
 });
 
 

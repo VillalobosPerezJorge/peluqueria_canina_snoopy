@@ -11,11 +11,10 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
     formData.append('image', imageFile);
 
     const options = {
-        method: 'PATCH', 
+        method: 'POST', 
         mode: 'cors', 
         headers: {
-            'Authorization': token,
-            
+            'Authorization': token
         },
         body: formData, 
     };
