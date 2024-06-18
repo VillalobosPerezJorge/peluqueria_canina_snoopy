@@ -2,6 +2,20 @@
 
 .navbar {
     background-color: #E34689 !important;
+    
+    a.nav-link {
+        color: rgb(252, 172, 0) !important;
+        text-shadow: 0px 0px 5px black;
+        font-family: "Spicy Rice" !important;
+        font-weight: bold !important;
+        font-size: 1.5em;
+        margin-left: .3em;
+
+        &:hover {
+            background-color: transparent;
+            text-shadow: 0px 0px 5px rgb(252, 172, 0);
+        }
+    }
 }
 
 .navbar-brand {

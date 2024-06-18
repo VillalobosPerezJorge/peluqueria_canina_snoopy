@@ -13,11 +13,6 @@ body {
     width: 80% !important;
 }
 
-#title {
-    font-family: 'gliker';
-    font-weight: bold;
-    color: #DA0E83 !important;
-}
 
 .navbar {
     margin: 0;
@@ -34,23 +29,29 @@ footer {
     max-width: 600px !important;
     background-color: #F4A894 !important;
     border-radius: 15px !important;
-    box-shadow: 2px 2px 5px black, 3px 3px 5px black, 4px 4px 5px black, 5px 5px 5px black !important;
+    box-shadow: 2px 2px 2px rgb(83, 83, 83), 3px 3px 3px rgb(83, 83, 83), 4px 4px 5px rgb(83, 83, 83), 5px 5px 7px rgb(83, 83, 83) !important;
 
     .title {
-        font-family: 'gliker';
+        font-size: 2rem !important;
+    }
+
+    .description {
+        font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+        font-size: 1.3rem !important;
+        color: #9b0158 !important;
     }
 
     .buttons {
 
         a button, button {
-            box-shadow: 1px 1px 2px rgb(78, 78, 78), 2px 2px 2px rgb(78, 78, 78), 3px 3px 2px rgb(78, 78, 78), 4px 4px 2px rgb(78, 78, 78);
+            box-shadow: 2px 2px 2px rgb(83, 83, 83), 3px 3px 3px rgb(83, 83, 83), 4px 4px 5px rgb(83, 83, 83), 5px 5px 7px rgb(83, 83, 83) !important;
 
             &:active {
-                box-shadow: 0px 0px 5px black inset;
+                box-shadow: 0px 0px 5px black inset !important;
             }
         }
 
-        .boton_eliminar:hover {
+        .boton_eliminar {
             background-color: #ff4457 !important;
             text-shadow: 0px 0px 5px rgb(0, 0, 0) !important;
         }
