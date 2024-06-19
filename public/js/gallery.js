@@ -28,7 +28,7 @@ window.onload = async () => {
         <div class="card-body text-center">
           <p class="card-text my-1 fst-italic fs-6">(Antes / Después)</p>
           <p class="title card-text fw-bold fs-3 my-3">${post.title}</p>
-          <p class="title card-text fs-4 my-3">${post.description}</p>
+          <p class="description card-text fs-4 my-3">${post.description}</p>
         </div>
       </div>`).join('');
 

@@ -35,6 +35,9 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
              // Muestra el postId en consola
             console.log('ID del post en localStorage:', postId);
             Swal.fire('Success', responseJson.message, 'success');
+
+            localStorage.removeItem('postId');
+
             window.location.href = `/admin?postId=${postId}`;
             });
         } else {
