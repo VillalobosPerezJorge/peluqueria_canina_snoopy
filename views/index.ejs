@@ -32,6 +32,10 @@
       width: 100%;
     }
 
+    .perro-mes-container {
+      font-family: "Spicy Rice", serif !important;
+    }
+
     @media (max-width: 600px) {
       .carousel-caption {
         display: none;
@@ -42,54 +46,17 @@
       font-family: "Spicy Rice", serif !important;
     }
   </style>
-</head>
 
-<body>
+<!-- Navigation bar -->
+  <%- include('./partials/navigation.ejs') %>
+<!-- Navigation bar -->
 
-  <!-- Navigation bar -->
-  <nav class="navbar navbar-expand-lg fs-5" style="background-color: #E799A3;">
-    <div class="container-fluid">
-      <a class="navbar-brand fs-2" href="/">
-        <img src="/public/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-        Peluquería Canina Snoopy
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/nosotros">Sobre nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/galeria">Galería de trabajos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/contacto">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/servicios">Servicios</a>
-          </li>
-        </ul>
-        <div id="auth-buttons" class="d-flex">
-          <div class="btn-group">
-            <a href="https://api.whatsapp.com/message/IKSQLN7ZJCN2N1?autoload=1&app_absent=0"
-              class="me-4 text-reset"><button class="btn btn-success me-2 fs-5" type="button" href="">¡Agenda una
-                hora!</button></a>
+  
 
-            <a href="/iniciar_sesion"><button class="btn btn-outline-primary me-2 fs-5" type="button">Iniciar
-                sesión</button></a>
-            <a href="/registrarse"><button class="btn btn-outline-primary me-2 fs-5"
-                type="button">Registrarse</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- Navigation bar -->
+<div id="main" class="container perro-mes-container align-items-center">
 
-  <div class="col-md-16 mx-auto">
+  <!-- carrusel -->
+  <div class="col-md-16 mx-auto py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -101,13 +68,13 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/public/perro1.jpg" class="d-block w-100" alt="...">
+          <img src="/public/images/perro1.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/public/perro2.jpg" class="d-block w-100" alt="...">
+          <img src="/public/images/perro2.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/public/perro3.jpg" class="d-block w-100" alt="...">
+          <img src="/public/images/perro3.jpg" class="d-block w-100" alt="...">
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev">
@@ -133,150 +100,35 @@
         </h2>
       </div>
     </div>
-    <div class="row pb-2">
-      <div class="mes">
-        <a class="fancylight popup-btn" data-fancybox-group="light">
-          <img class="img-fluid" src="/public/perro1.jpg" alt="">
-        </a>
-      </div>
-    </div>
-  </div>
-  <!---->
-  <footer class="text-center text-lg-start bg-light text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Conéctate con nosotros en las redes sociales:</span>
-      </div>
-      <!-- Left -->
+  <!-- Fin carrusel -->
 
-      <!-- Right -->
-      <div>
-        <a href="https://www.facebook.com/profile.php?id=100082362460558" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/snoopy_peluqueria_canina/?hl=es" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i></a>
-        </a>
-
-        <a href="https://www.tiktok.com/@peluqueria.snoopy" class="me-4 text-reset">
-          <i class="fab fa-tiktok"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>Peluquería Canina Snoopy
-            </h6>
-            <p>
-              Ofrecemos los mejores servicios de peluquería y cuidado para tu mascota.
-            </p>
-
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Servicios
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">Baño</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Corte</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Estilismo</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Terapias</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Enlaces rápidos
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">Sobre nosotros</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Galería</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Contacto</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Ayuda</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Contacto
-            </h6>
-            <p><i class="fas fa-home me-3"></i><a href="https://maps.app.goo.gl/Fw2RBvUgM8EzLLMNA" target="_blank"
-                class="text-reset">Villa Los Naranjos 5437, Peñalolén</a></p>
-            <p>
-              <i class="fas fa-envelope me-3"></i>
-              info@ejemplo.com
-            </p>
-            <p><i class="fas fa-phone me-3"></i> +57 317 346 1294</p>
-          </div>
-          <!-- Grid column -->
+  <!-- Perro del mes -->
+      <div class="row">
+        <div class="col-lg-12 text-center my-2">
+          <h1 class="my-5" style="color: #FFED9C">
+            Perro del mes</h1>
+          <h2 class="my-5" style="color: #DA0E83;">
+            ¡Descubre si tu peludito es nuestro destacado del mes!
+          </h2>
         </div>
-        <!-- Grid row -->
       </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2024 Copyright:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> CIISA</a>
+      <div class="row pb-2">
+        <div class="mes">
+          <a class="fancylight popup-btn" data-fancybox-group="light">
+            <img class="img-fluid" src="/public/images/perro1.jpg" alt="">
+          </a>
+        </div>
+      </div>
     </div>
-    <!-- Copyright -->
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      const authButtons = document.getElementById('auth-buttons');
+    <!-- Fin perro del mes -->
 
-      if (isLoggedIn) {
-        authButtons.innerHTML = `
-            <a href="/mi_perfil"><button class="btn btn-outline-primary me-2 fs-5" type="button">Mi Perfil</button></a>
-            <button id="btn-logout" class="btn btn-outline-primary me-2 fs-5" type="button">Cerrar Sesión</button>
-          `;
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- Fin Footer -->
 
-        document.getElementById('btn-logout').addEventListener('click', () => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('isLoggedIn');
-          window.location.href = '/';
-        });
-      }
-    });
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/js/general-user.js"></script>
 </body>
 
 </html>

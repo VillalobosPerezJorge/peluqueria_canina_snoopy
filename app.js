@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use(cors());
 
 
 // Configuración del motor de plantillas EJS
@@ -27,7 +30,7 @@ app.use(session({
 
 
 
-// Rutas para las vistas
+// Rutas para las vistas usuarios
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -36,7 +39,7 @@ app.get('/contacto', (req, res) => {
   res.render('contact');
 });
 
-app.get('/galeria', (req, res) => {
+app.get('/galeria/:page?', (req, res) => {
   res.render('gallery');
 });
 
@@ -44,9 +47,6 @@ app.get('/nosotros', (req, res) => {
   res.render('about');
 });
 
-app.get('/admin', (req, res) => {
-  res.render('admin/admin');
-});
 
 app.get('/login', (req, res) => {
   res.render('login');
@@ -71,47 +71,73 @@ app.get('/iniciar_sesion', (req, res) => {
 
 
 app.get('/completar_registro/:token?', async (req, res) => {
-    if(!req.params.token || req.params.token == '') return res.render('index');
-
-    const token = req.params.token;
-
-    try {
-      const response = await fetch(`http://18.231.252.59/api/user/validateUserRegister/${token}`, {
-        method: 'GET',
-        mode: 'cors',
-      });
-
-      const response_json = await response.json();
-
-      if(response_json.status == 'Success') {
-        res.locals ={
-          image_name: 'smile.webp',
-          title: 'Registro exitoso',
-          detail: 'Ya puedes acceder a tu cuenta de usuario'
-        }
-      }else{
-        res.locals ={
-          image_name: 'sad.webp',
-          title: 'No se pudo completar el registro',
-          detail: 'Lo sentimos, hubo un problema al registrar al usuario, intente nuevamente'
-        }        
+  if(!req.params.token || req.params.token == '') return res.render('index');
+  
+  const token = req.params.token;
+  
+  try {
+    const response = await fetch(`http://18.231.252.59/api/user/validateUserRegister/${token}`, {
+      method: 'GET',
+      mode: 'cors',
+    });
+    
+    const response_json = await response.json();
+    
+    if(response_json.status == 'Success') {
+      res.locals ={
+        image_name: 'smile.webp',
+        title: 'Registro exitoso',
+        detail: 'Ya puedes acceder a tu cuenta de usuario'
       }
-
-      res.render('signup-complete');
-
-    } catch (error) {
-      console.error(error);
-      res.render('index');
+    }else{
+      res.locals ={
+        image_name: 'sad.webp',
+        title: 'No se pudo completar el registro',
+        detail: 'Lo sentimos, hubo un problema al registrar al usuario, intente nuevamente'
+      }        
     }
-
+    
+    res.render('signup-complete');
+    
+  } catch (error) {
+    console.error(error);
+    res.render('index');
+  }
+  
 });
 
 app.get('/password-recovery', (req, res) => {
-    res.render('password-recovery');
+  res.render('password-recovery');
 });
 
 app.get('/password-change/:token?', (req, res) => {
   res.render('password-change');
+});
+
+
+// Rutas de admin
+app.get('/admin', (req, res) => {
+  res.render('admin/admin');
+});
+
+app.get('/admin_galeria', (req, res) => {
+  res.render('admin/admin_gallery');
+});
+
+app.get('/admin_antes', (req, res) => {
+  res.render('admin/admin_before');
+});
+
+app.get('/admin_despues', (req, res) => {
+  res.render('admin/admin_after');
+});
+
+app.get('/admin/vista-galeria/:page?', (req, res) => {
+  res.render('admin/admin_gallery_view');
+});
+
+app.get('/admin/vista-galeria-inactivos/:page?', (req, res) => {
+  res.render('admin/admin_gallery_disabled');
 });
 
 
@@ -129,6 +155,8 @@ app.get('/st_contacto.css', (req, res) => {
   res.set('Content-Type', 'text/css');
   res.sendFile(path.join(__dirname, 'public/st_contacto.css'));
 });
+
+
 
 
 app.use(express.static(__dirname + 'public'));

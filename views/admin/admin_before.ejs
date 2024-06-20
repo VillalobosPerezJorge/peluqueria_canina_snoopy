@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Peluquería Canina Snoopy - Administrador</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+<!-- Navigation bar -->
+<%- include('../partials/navigation_admin.ejs') %>
+<!-- Navigation bar -->
+
+  <div class="container mt-5">
+    <div id="main" class="container w-75 d-flex flex-column align-items-center p-5 rounded-3 shadow" style="background-color: #FFED9C;">
+      <h1 class="mb-4">Sube la primera foto del post</h1>
+    
+        <form>
+          <div class="mb-3">
+              <label for="image1" class="form-label">Sube la foto de la mascota antes de llegar a la peluquería</label>
+              Foto del antes
+              <input type="file" id="image1">
+          </div>
+
+          <button type="button" id='btn-upload' class="btn btn-primary w-100">Subir</button>
+        </form>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <%- include('../partials/footer.ejs') %>
+  <!-- Fin Footer -->
+
+  <script src="../../public/js/admin/before_picture.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../public/js/general-admin.js"></script>
+
+</body>
+</html>
