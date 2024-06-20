@@ -28,6 +28,26 @@
       list-style-image: url(/public/huellas-de-perro.png);
       padding-right: 10px;
     }
+    .home{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    in-flex{
+      flex: 1;
+      min-width: 250px;
+    }
+    in-flex:first-child{
+      flex: 2;
+      padding: 25 px;
+      margin: 20 px;
+      margin-bottom: 0px;
+    }
+    td{
+      width: 200px;
+    }
+
   </style>
 </head>
 
@@ -82,8 +102,8 @@
     <h4 style="text-align: center;">A continuación presentamos los servicios que ofrece Peluquería Canina Snoopy</h4>
     <br><br>
     <div class="container" style="background-color: #FFED9C;">
-      <div class="row">
-        <div class="col-6" style="align-content:center; text-align: justify;">
+      <section class="home">
+        <div class="in-flex" style="text-align: justify;">
           <ul>
             <p>
               <li><h5><b>Baño antipulgas</b></h5></li>
@@ -111,41 +131,41 @@
             </p>
           </ul>
         </div>
-        <div class="col-6" style="align-items: center ;">
+        <div class="in-flex">
           <br>
           <img class="mx-auto d-block" src="../public/servicios.png" alt="80%" width="80%"><br><br>
         </div>
-      </div>
+      </section>
       <br><br>
-      <h4><b><u>Importante</u>: Nuestros servicios se realizan sin sedación</b></h4>
+      <h4 style="text-align: center;"><b><u>Importante</u>: Nuestros servicios se realizan sin sedación</b></h4>
       <br> <br>
     </div>
     <div class="table-responsive">
       <table class="table table-danger table-striped table-bordered" style="text-align:center">
         <tr>
-          <th class="prc-25"><h5>Peso / Raza</h5></th>
-          <th class="prc-25"><h5>Precio</h5></th>
-          <th class="prc-25"><h5>Traslado</h5></th>
+          <th><h5>Peso / Raza</h5></th>
+          <th><h5>Precio</h5></th>
+          <th><h5>Traslado</h5></th>
         </tr>
         <tr>
-          <td class="prc-25">Hasta 10 kilos</td>
-          <td class="prc-25">$17.990</td>
-          <td class="prc-25">$22.990</td>
+          <td>Hasta 10 kilos</td>
+          <td>$17.990</td>
+          <td>$22.990</td>
         </tr>
         <tr>
-          <td class="prc-25">11 hasta 15 kilos</td>
-          <td class="prc-25">$25.000 a $30.000</td>
-          <td class="prc-25">X</td>
+          <td>11 hasta 15 kilos</td>
+          <td>$25.000 a $30.000</td>
+          <td>X</td>
         </tr>
         <tr>
-          <td class="prc-25">16 hasta 25 kilos</td>
-          <td class="prc-25">$27.000 a $35.000</td>
-          <td class="prc-25">X</td>
+          <td>16 hasta 25 kilos</td>
+          <td>$27.000 a $35.000</td>
+          <td>X</td>
         </tr>
         <tr>
-          <td class="prc-25">26 hasta 30 kilos</td>
-          <td class="prc-25">$30.000 a $35.000</td>
-          <td class="prc-25">X</td>
+          <td>26 hasta 30 kilos</td>
+          <td>$30.000 a $35.000</td>
+          <td>X</td>
         </tr>
         <tr>
           <td class="prc-25">40 kilos en adelante</td>
