@@ -30,6 +30,7 @@ btn_recuperar.addEventListener('click', async (event) => {
 
         if(response_json.status == 'Success'){
             swal.fire('Success', response_json.message, 'success');
+            window.location.href = '/';
         }else{
             swal.fire('Error', response_json.message, 'error');
         }

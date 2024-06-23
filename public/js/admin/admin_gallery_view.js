@@ -94,6 +94,7 @@ const cargarPosts = async (windowPage) => {
         paginationDiv.innerHTML = pagination;
 
         const btns = document.querySelectorAll('.boton_eliminar');
+    
         
         btns.forEach(btn => {
           // Acción del boton eliminar
@@ -128,7 +129,11 @@ const cargarPosts = async (windowPage) => {
           })
         });
 
+
+
     }, 0);
+    
+   
       
   } catch (error) {
       console.log(error);
