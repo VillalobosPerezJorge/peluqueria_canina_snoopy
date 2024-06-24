@@ -1,8 +1,3 @@
-if(!localStorage.role || localStorage.role !== 'role-admin'){
-  window.location.href = '/'
-}
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const nameAdmin = localStorage.getItem('name');
@@ -12,9 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('welcome-text').textContent = welcomeMessage;
     if (isLoggedIn) {
         document.getElementById('btn-logout').addEventListener('click', () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('role');
+        localStorage.clear();
         window.location.href = '/';
       });
     }

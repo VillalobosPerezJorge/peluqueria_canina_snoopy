@@ -1,6 +1,6 @@
-ul {
-    list-style-image: url(/public/images/huellas-de-perro.png);
-    padding-right: 10px;
+.services {
+    list-style-image: url(/public/images/huellas-de-perro.png) !important;
+    padding-right: 10px !important;
 }
 
 .red {
