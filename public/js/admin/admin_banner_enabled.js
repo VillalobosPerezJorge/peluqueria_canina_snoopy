@@ -103,7 +103,7 @@ const cargarBannersActivos = async (windowPage) => {
 
                     try {
                         const response = await fetch(`http://18.231.252.59/api/banner/delete/${bannerId}`, {
-                            method: 'DELETE',
+                            method: 'POST',
                             mode: 'cors',
                             headers: {
                                 'Authorization': token

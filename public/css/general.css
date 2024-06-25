@@ -1,16 +1,27 @@
 @import url('../fonts/gliker/stylesheet.css');
+@import url('../fonts/pattaya/stylesheet.css');
+@import url('../fonts/carme/stylesheet.css');
+@import url('../fonts/exo2/stylesheet.css');
 
 body {
     text-justify: auto;
-    font-family: 'Lucida Sans';
+    font-family: 'carme';
     background-image: url('/public/images/patron_patitas\ 70x70.png');
     background-repeat: repeat; 
 }
 
 .title {
-    font-family: "Spicy Rice" !important;
+    font-family: "pattaya" !important;
     font-weight: bold !important;
     font-size: 4rem !important;
+    color: #DA0E83 !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+}
+
+.subtitle {
+    font-family: 'Exo 2' !important;
     color: #DA0E83 !important;
 }
 

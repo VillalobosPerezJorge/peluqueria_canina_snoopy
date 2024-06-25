@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Pattaya';
+    src: url('Pattaya-Regular.eot');
+    src: local('Pattaya-Regular'),
+        url('Pattaya-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Pattaya-Regular.woff2') format('woff2'),
+        url('Pattaya-Regular.woff') format('woff'),
+        url('Pattaya-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
