@@ -34,8 +34,9 @@ const cargarPosts = async (windowPage) => {
       </div>
 
       <div class="buttons w-100 d-flex flex-row justify-content-around mt-2 mb-4">
-        <a href="#"><button class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button></a>
-        <button type="button" value='${post._id}' class="boton_seleccionar btn btn-success fs-5 fw-bold">Perro del mes</button>
+
+        <a href="/admin_antes"><button class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button></a>
+
         <button type="button" value='${post._id}' class="boton_eliminar btn btn-danger fs-5 fw-bold">Inhabilitar</button>
       </div>
     </div>`).join('');
