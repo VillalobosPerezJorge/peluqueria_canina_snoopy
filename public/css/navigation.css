@@ -2,12 +2,14 @@
 
 .navbar {
     background-color: #E34689 !important;
+    
 
     .navbar-brand{
         filter: drop-shadow(0px 0px 5px black);
+        transition: all 200ms !important;
 
         &:hover {
-            filter: drop-shadow(0px 0px 5px rgb(255, 167, 201));
+            filter: drop-shadow(0px 0px 5px #FFAF17);
         }
     }
     
@@ -16,8 +18,9 @@
         text-shadow: 0px 0px 5px black;
         font-family: "Spicy Rice" !important;
         font-weight: bold !important;
-        font-size: 1.5em;
+        font-size: 1.3em;
         margin-left: .3em;
+        transition: all 200ms !important;
 
         &:hover {
             background-color: transparent;
@@ -63,11 +66,42 @@
     }
 }
 
+#auth-buttons{
+    flex-direction: row !important; 
+    gap: 5px !important;
+
+    a, button {
+        font-size: .9em !important;
+        height: 2.5em !important;
+    }
+
+}
+
+@media (max-width: 1380px){
+
+    #auth-buttons{
+        a, button {
+            font-size: .9em !important;
+            height: 5em !important;
+        }
+
+        .hide {
+            display: none;
+        }
+    }
+}
+
+
 @media (max-width: 768px){
 
     #auth-buttons{
         flex-direction: column !important;
         gap: 10px;
+
+        button, a {
+            font-size: .9em !important;
+            height: 2.5em !important;
+        }
 
         a, .btn-group{
             width: 90% !important;

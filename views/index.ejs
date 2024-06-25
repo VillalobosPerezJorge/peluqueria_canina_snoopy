@@ -9,32 +9,7 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <style>
-    .navbar {
-      margin: 0;
-      border-radius: 0;
-    }
-
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-
-    .carousel-inner>.item>img {
-      min-width: 100%;
-      width: 100%;
-    }
-
-    /* .perro-mes-container {
-      font-family: "Spicy Rice", serif !important;
-    } */
-
-    @media (max-width: 600px) {
-      .carousel-caption {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../public/css/index.css">
 
 <!-- Navigation bar -->
   <%- include('./partials/navigation.ejs') %>
@@ -45,7 +20,7 @@
 <div id="main" class="container perro-mes-container align-items-center">
 
   <!-- carrusel -->
-  <div class="col-md-16 mx-auto py-5">
+  <div id="carouselDiv" class="mx-auto py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
