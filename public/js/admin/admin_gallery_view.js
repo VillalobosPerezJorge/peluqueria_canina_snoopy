@@ -29,12 +29,13 @@ const cargarPosts = async (windowPage) => {
       </img-comparison-slider>
       <div class="card-body text-center">
         <p class="card-text my-1 fst-italic fs-6">(Antes / Después)</p>
-        <p class="title card-text fw-bold fs-3 my-3">${post.title}</p>
+        <p class="subtitle card-text fw-bold fs-3 my-3">${post.title}</p>
         <p class="description card-text fs-4 my-3">${post.description}</p>
       </div>
 
       <div class="buttons w-100 d-flex flex-row justify-content-around mt-2 mb-4">
         <a href="#"><button class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button></a>
+        <button type="button" value='${post._id}' class="boton_seleccionar btn btn-success fs-5 fw-bold">Perro del mes</button>
         <button type="button" value='${post._id}' class="boton_eliminar btn btn-danger fs-5 fw-bold">Inhabilitar</button>
       </div>
     </div>`).join('');
@@ -93,10 +94,11 @@ const cargarPosts = async (windowPage) => {
         galeria.innerHTML = elementosHTML;
         paginationDiv.innerHTML = pagination;
 
-        const btns = document.querySelectorAll('.boton_eliminar');
+        const btns_eliminar = document.querySelectorAll('.boton_eliminar');
+        const btns_seleccionar = document.querySelectorAll('.boton_seleccionar');
     
         
-        btns.forEach(btn => {
+        btns_eliminar.forEach(btn => {
           // Acción del boton eliminar
           btn.addEventListener('click', async e => {
             const postId = e.target.value;
@@ -108,6 +110,39 @@ const cargarPosts = async (windowPage) => {
               const response = await fetch(`http://18.231.252.59/api/post/changeStatus/${postId}`,
                 {
                   method: 'Post',
+                  mode: 'cors',
+                  headers: {
+                    'Authorization': token
+                  }
+                }
+              );
+              const responseJson = await response.json();
+
+              if(responseJson.status === 'Success'){
+                Swal.fire('Success', responseJson.message, 'success');
+                cargarPosts();
+              }else{
+                Swal.fire('Error', responseJson.message, 'error');
+              }
+            } catch (error) {
+              Swal.fire('Error', 'Error al ejecutar la funcion', 'error');
+            }
+
+          })
+        });
+
+        btns_seleccionar.forEach(btn => {
+          // Acción del boton eliminar
+          btn.addEventListener('click', async e => {
+            const postId = e.target.value;
+            const token = localStorage.getItem('token');
+
+            e.preventDefault();
+
+            try {
+              const response = await fetch(`http://18.231.252.59/api/post/changeSelected/${postId}`,
+                {
+                  method: 'PATCH',
                   mode: 'cors',
                   headers: {
                     'Authorization': token
