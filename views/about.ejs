@@ -9,85 +9,143 @@
    <!-- CSS PROPIO -->
 
    <!-- font awesome-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
    <style>
      .navbar {
        margin: 0;
        border-radius: 0;
      }
      body{
-    text-justify: auto;
-    font-family: 'Lucida Sans';
-    background-image: url(/public/images/patron_patitas\ 70x70.png);
+      text-justify: auto;
+      font-family: 'Lucida Sans';
+      background-image: url(/public/images/patron_patitas\ 70x70.png);
     }
 
+    ul {
+      list-style: none;
+      padding-left: 0; 
+    }
+
+    .list-with-dots {
+      list-style: disc; 
+      padding-left: 20px; 
+    }
+
+    .list-with-dots li {
+      list-style-position: inside; 
+    }
+
+    .card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 0; 
+    }
+
+    .card img {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
   </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <%- include('./partials/navigation.ejs') %>
+  <!-- Navigation bar -->
 
-<!-- Navigation bar -->
-<%- include('./partials/navigation.ejs') %>
-<!-- Navigation bar -->
-
-<div class="container" style="background-color: #FFED9C;">
-  <div>
-    <br><br>
-    <h1 class="d-flex justify-content-center title">Sobre Nosotros</h1>
-  </div>
-  <br><br>
-  <div class="row">
-    <div class="col-8" style="align-content:center; text-align: justify;">
-      <h4>Peluquería Canina Snoopy es un emprendimiento dedicado a la estética e higiene de mascotas.</h4>
-      <br>
-      <h4>Nuestros sevicios se realizan con pasión, amor y cariño hacia los animales, centrándonos en el bienestar y seguridad de
-      tu mascota para evitar situaciones de estrés que pudiesen afectarle.</h4>
-      <br>
-      <h4>Atendemos animales con discapacidad (inválidos, ciegos, sin patitas), animales mayores y animales grandes.
-      </h4>
-      <br>
-      <h4>No utilizamos sedación en animales.</h4>
+  <div class="container" style="background-color: #FFED9C;">
+    <div>
       <br><br>
-    </div>
-    <div class="col-4">
-      <img class="mx-auto d-block" src="../public/images/PeluqueriaCanina.png" alt="80%" width="80%"><br><br>
-    </div>
-    <br><br>
-    <div class="row">
-      <div class="col-4">
-        <br>
-        <img class="mx-auto d-block" src="../public/images/About.jpeg" alt="80%" width="80%"><br><br>
+      <div id="main" class="container d-flex flex-column align-items-center">
+        <h1 id="title" class="my-5 fw-bold title">Sobre Nosotros</h1>
       </div>
-      <div class="col-8" style="align-content:center; text-align: justify;">
-        <br>
-        <h4>Peluquería Canina Snoopy es atentido por su dueña Luz Mery Guzmán, especializada en Peluquería Canina y Técnicas Mixtas.</h4>
-        <br>
-        <h4>Al comenzar en Colombia este sueño, el objetivo principal se centraba en el rescate de animales maltratados, enviarlos a la peluquería y al veterinario. </h4>
-        <br>
-        <h4>Al ver los costos elevados de realizarlo, decidí estudiar Peluquería Canina para poder ayudar a animales de la calle que no tuvieran dueño para dejarlos en buen estado y darles 
-        la oportunidad de que alguna persona los adoptara.</h4>
-        <br>
-        <h4>Llegué a Chile hace 8 años buscando nuevas oportunidades y tengo 7 años de experiencia como peluquera canina.</h4>
-        <br><br>
-      </div>
+     
     </div>
     <br><br>
-    <div class=" col-6" style="align-content:center; text-align: justify;">
-        <h4>Ofrecemos servicios de traslado dentro las comunas de Peñalolén, La Florida, La Reina, Ñuñoa, Las
-          Condes y Macul.</h4>
-      </div>
-      <br><br>
-      <div class="col-6">
-        <img class="mx-auto d-block" src="../public/images/camioneta.jpg" alt="80%" width="100%"><br><br>
-      </div>
+    <!-- Aqui modifique el primer parrafo-->
+    <div class="container" style="background-color: #FFED9C;">
+      <section>
+        <div class="card mb-3" style="background-color: #FFED9C;">
+          <div class="row g-0">
+            <div class="col-md-4" style="align-items:end">
+              <img src="../public/images/PeluqueriaCanina.png" class="img-fluid rounded-start card-img-top">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <br>
+                <p class="text-justify mt-3 mt-2 text-formatoA navbar-nav ml-3">Peluquería Canina Snoopy es un
+                  emprendimiento dedicado a la estética e higiene de mascotas.
+                  <br><br>
+                  Nuestros servicios se realizan con pasión, amor y cariño hacia los animales, centrándonos en el
+                  bienestar y seguridad de tu mascota para evitar situaciones de estrés que pudiesen afectarle.
+                  <br><br>
+                  Atendemos animales con discapacidad (inválidos, ciegos, sin patitas), animales mayores y
+                  animales grandes.
+                  <br><br>
+                  No utilizamos sedación en animales.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="card mb-3" style="background-color: #FFED9C;">
+          <div class="row g-0">
+            <div class="col-md-4" style="align-items:end">
+              <img src="../public/images/About.jpeg" class="img-fluid rounded-start card-img-top">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <br>
+                <p class="text-justify mt-3 mt-2 text-formatoA navbar-nav ml-3">Peluquería Canina Snoopy es
+                  atendido por su dueña Luz Mery Guzmán, especializada en Peluquería Canina y Técnicas Mixtas.
+                  <br><br>
+                  Al comenzar en Colombia este sueño, el objetivo principal se centraba en el rescate de animales
+                  maltratados, enviarlos a la peluquería y al veterinario.
+                  <br><br>
+                  Al ver los costos elevados de realizarlo, decidí estudiar Peluquería Canina para poder ayudar a
+                  animales de la calle que no tuvieran dueño para dejarlos en buen estado y darles la oportunidad
+                  de que alguna persona los adoptara.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="card mb-5" style="background-color: #FFED9C;">
+          <div class="row g-0">
+            <div class="col-md-4" style="align-items:end">
+              <img src="../public/images/camioneta.jpg" class="img-fluid rounded-start card-img-top">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="text-justify mt-3 mt-2 text-formatoA navbar-nav ml-3">Ofrecemos servicios de traslado en las
+                  siguientes comunas:</p>
+                  <br>
+                  <ul class="list-with-dots">
+                    <li>Las Condes</li>
+                    <li>La Florida</li>
+                    <li>La Reina</li>
+                    <li>Macul</li>
+                    <li>Ñuñoa</li>
+                    <li>Peñalolén</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
     </div>
   </div>
-</div>
 
-<!-- Footer -->
-<%- include('./partials/footer.ejs') %>
-<!-- Fin Footer -->
+  <!-- Footer -->
+  <%- include('./partials/footer.ejs') %>
+  <!-- Fin Footer -->
 
-<!-- scripts generales para todas las vistas -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../public/js/general-user.js"></script>
+  <!-- scripts generales para todas las vistas -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../public/js/general-user.js"></script>
 
 </body>
 </html>
