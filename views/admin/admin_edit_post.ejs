@@ -18,7 +18,19 @@
   <!-- Navigation bar -->
 
     <div id="main" class="container w-75 d-flex flex-column align-items-center">
-     
+      <form id="editarPostForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="Nombre del post">
+      
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion">Descripción del post</textarea>
+      
+        <label for="dueno">Dueño:</label>
+        <input type="text" id="dueno" name="dueno" value="Dueño del post">
+      
+        <button type="submit" id="btn_guardar_cambios">Guardar cambios</button>
+      </form>
+      
     </div>
 
     <!-- Footer -->
@@ -30,6 +42,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../public/js/general-admin.js"></script>
+    <script src="../../public/js/admin/admin_gallery_edit.js"></script>
 
   </body>
 </html>

@@ -128,6 +128,10 @@ app.get('/admin_editar_galeria', (req, res) => {
   res.render('admin/admin_edit_post');
 });
 
+app.get('/admin_actualizar_galeria', (req, res) => {
+  res.render('admin/admin_edit_post');
+});
+
 app.get('/admin_antes', (req, res) => {
   res.render('admin/admin_before');
 });
