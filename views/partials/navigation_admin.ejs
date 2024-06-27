@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="../../public/images/favicon.svg" type="image/x-icon">
+<link rel="shortcut icon" href="/public/images/favicon.svg" type="image/x-icon">
 <link rel="stylesheet" href="../../public/css/navigation.css">
 <link rel="stylesheet" href="../../public/css/general.css">
 <script src="../../public/js/admin/verificar_admin.js"></script>
@@ -6,7 +6,7 @@
 
 <body>
   <!-- Navigation bar -->
-<nav class="navbar navbar-expand-lg fs-5">
+  <nav class="navbar navbar-expand-lg fs-5">
     <div class="container-fluid">
       <a class="navbar-brand fs-1 mx-4" href="/admin">
         <img id="nav-logo" src="/public/images/Snoopy-logo.png" width="150px" class="d-inline-block align-top" alt="">
@@ -18,30 +18,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Sobre nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/admin/vista-galeria/1">Galería de trabajos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Servicios</a>
-          </li>
+          <!-- Aquí puedes agregar elementos de navegación si es necesario -->
         </ul>
-        <div id="auth-buttons" class="d-flex">
+        <div id="auth-buttons" class="d-flex ms-auto">
           <a href="/admin" class="me-4 text-reset">
             <button id="btn-panel" class="btn btn-warning btn-panel me-2 fs-5 fw-bold" type="button">Panel de administrador</button>
           </a>
-          
           <a href="/mi_perfil"><button class="btn btn-warning btn-panel me-2 fs-5 fw-bold" type="button">Mi Perfil</button></a>
-          <div class="btn-group">
-            <button id="btn-logout" class="btn btn-danger me-2 fs-5" type="button">Cerrar Sesión</button>
-          </div>
+          <button id="btn-logout" class="btn btn-danger me-2 fs-5" type="button">Cerrar Sesión</button>
         </div>
       </div>
     </div>
   </nav>
   <!-- Navigation bar -->
+
