@@ -71,6 +71,11 @@ footer {
     }
 }
 
+.selected_card {
+    /* box-shadow: 2px 2px 2px rgb(255, 174, 0), 3px 3px 3px rgb(255, 174, 0), 4px 4px 5px rgb(255, 174, 0), 5px 5px 7px rgb(255, 174, 0) !important; */
+    background: linear-gradient(220deg, rgba(131,0,199,1) 0%, rgba(201,169,218,1) 60%, rgba(131,0,199,1) 100%) !important;
+}
+
 .page-link{
     background-color: #fdcf00 !important;
     color: #DA0E83 !important;

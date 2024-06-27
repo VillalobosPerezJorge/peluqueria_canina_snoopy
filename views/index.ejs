@@ -13,86 +13,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/public/css/login.css">
 
-  <style>
-    .navbar {
-      margin: 0;
-      border-radius: 0;
-    }
-
-    body {
-      background-image: url(/public/fondo2.jpg);
-    }
-
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-
-    .carousel-inner>.item>img {
-      min-width: 100%;
-      width: 100%;
-    }
-
-    .perro-mes-container {
-      font-family: "Spicy Rice", serif !important;
-    }
-
-    @media (max-width: 600px) {
-      .carousel-caption {
-        display: none;
-      }
-    }
-
-    .perro-mes-container {
+  <link rel="stylesheet" href="../public/css/index.css">
+<style>
+.perro-mes-container {
       font-family: "Spicy Rice", serif !important;
     }
   </style>
-
-  <!-- Navigation bar -->
+<!-- Navigation bar -->
   <%- include('./partials/navigation.ejs') %>
-    <!-- Navigation bar -->
+<!-- Navigation bar -->
 
+  
 
+<div id="main" class="container perro-mes-container align-items-center">
 
-    <div id="main" class="container perro-mes-container align-items-center">
-
-      <!-- carrusel -->
-      <div class="col-md-16 mx-auto py-5">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-              aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/public/images/perro1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="/public/images/perro2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="/public/images/perro3.jpg" class="d-block w-100" alt="...">
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
+  <!-- carrusel -->
+  <div id="carouselDiv" class="mx-auto py-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
-      <!-- Fin carrusel -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="" class="d-block w-100" alt="..." id="carousel_1">
+        </div>
+        <div class="carousel-item">
+          <img src="" class="d-block w-100" alt="..." id="carousel_2">
+        </div>
+        <div class="carousel-item">
+          <img src="" class="d-block w-100" alt="..." id="carousel_3">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    </div>
+  <!-- Fin carrusel -->
 
-      <!--Perro del mes-->
+   <!--Perro del mes-->
       <div id="main" class="container my-5 align-items-center w-50 low-shadow"
         style="background-color: #DA0E83;">
         <div class="row">
@@ -123,8 +94,12 @@
       <%- include('./partials/footer.ejs') %>
         <!-- Fin Footer -->
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../public/js/general-user.js"></script>
-        </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/js/general-user.js"></script>
+
+    <!-- Script para funcionamiento del banner-->
+    <script src="../public/js/index.js"></script>
+
+</body>
 
 </html>

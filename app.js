@@ -124,6 +124,14 @@ app.get('/admin_galeria', (req, res) => {
   res.render('admin/admin_gallery');
 });
 
+app.get('/admin_editar_galeria', (req, res) => {
+  res.render('admin/admin_edit_post');
+});
+
+app.get('/admin_actualizar_galeria', (req, res) => {
+  res.render('admin/admin_edit_post');
+});
+
 app.get('/admin_antes', (req, res) => {
   res.render('admin/admin_before');
 });
@@ -140,26 +148,32 @@ app.get('/admin/vista-galeria-inactivos/:page?', (req, res) => {
   res.render('admin/admin_gallery_disabled');
 });
 
+app.get('/admin_banner_subir', (req, res) => {
+  res.render('admin/admin_banner_upload');
+});
+
+app.get('/admin_banner_imagen', (req, res) => {
+  res.render('admin/admin_banner_image');
+});
+
+app.get('/admin/vista-banner-inactivos/:page?', (req, res) => {
+  res.render('admin/admin_banner_disabled');
+});
+
+app.get('/admin/vista-banner-activos/:page?', (req, res) => {
+  res.render('admin/admin_banner_enabled');
+});
+
+
 
 // Rutas de autenticación
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// MIME para style.css
-app.get('/style.css', (req, res) => {
-  res.set('Content-Type', 'text/css');
-  res.sendFile(path.join(__dirname, 'public/style.css'));
-});
-
-app.get('/st_contacto.css', (req, res) => {
-  res.set('Content-Type', 'text/css');
-  res.sendFile(path.join(__dirname, 'public/st_contacto.css'));
-});
 
 
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.use(express.static(__dirname + 'public'));
 
 // Iniciar el servidor
 app.listen(port, () => {
