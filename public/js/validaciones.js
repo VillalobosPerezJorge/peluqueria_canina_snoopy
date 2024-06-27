@@ -66,15 +66,40 @@ function validarDatos() {
 
     return true;
 }
+function validarLogin() {
+    let correo = document.getElementById("login_email").value;
+    let contrasena = document.getElementById("login_password").value;
+    let expresion = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    if (correo === "" || contrasena === "") {
+        alert("Los campos que contengan asterisco son obligatorios");
+        return false;
+    }
+    if (correo.length > 100) {
+        alert("El correo debe contener máximo 100 caracteres");
+        return false;
+    }
+    if (!expresion.test(correo)) {
+        alert("El correo ingresado no es válido");
+        return false;
+    }
+    if (contrasena.lenght < 8) {
+        alert("La contraseña debe contener mínimo 8 caracteres");
+        return false;
+    }
+    return true;
+
+}
+
 
 function verificarPassword() {
     const decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,20}$/;
 
     // 
-    if (pass1.value.match(decimal)){
+    if (pass1.value.match(decimal)) {
         console.log("La contraseña es correcta")
-    }else{
-        alert ("La contraseña debe contener una mayúscula, una minúscula, un número y un caracter especial")
+    } else {
+        alert("La contraseña debe contener una mayúscula, una minúscula, un número y un caracter especial")
     }
     // Verificamos si las constraseñas coinciden 
     if (pass1.value == pass2.value) {
@@ -91,7 +116,7 @@ function verificarPassword() {
 
 const submit_button = document.querySelector('#btn-enviar');
 
-submit_button.addEventListener('click', async(event)=>{
+submit_button.addEventListener('click', async (event) => {
 
     event.preventDefault();
 
@@ -113,9 +138,9 @@ submit_button.addEventListener('click', async(event)=>{
 
     let subscribed;
 
-    if(suscribirse) {
+    if (suscribirse) {
         subscribed = true;
-    }else{
+    } else {
         subscribed = false;
     }
 
@@ -134,13 +159,13 @@ submit_button.addEventListener('click', async(event)=>{
         method: 'POST',
         mode: 'cors',
         headers: {
-        'Content-type': 'application/json; charset=utf-8',
+            'Content-type': 'application/json; charset=utf-8',
         },
         body: JSON.stringify(datos)
     }
-    
+
     try {
-        const response = await fetch('http://18.231.252.59/api/user/register', options) 
+        const response = await fetch('http://18.231.252.59/api/user/register', options)
         const response_json = await response.json();
 
         if (response.ok) {

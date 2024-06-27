@@ -1,0 +1,52 @@
+.navbar {
+    margin: 0;
+    border-radius: 0;
+}
+
+body {
+    text-justify: auto;
+    font-family: 'Lucida Sans';
+    background-image: url('/public/fondo.jpg');
+    background-repeat: repeat;
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+.carousel-inner>.item>img {
+    min-width: 100%;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    margin-top: 20px;
+}
+
+.low-shadow {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+@media (min-width: 1200px) {
+    .form-container {
+        width: 500px;
+    }
+}
+
+@media (min-width: 992px) {
+    .form-container {
+        width: 700px;
+    }
+}
