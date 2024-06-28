@@ -1,6 +1,7 @@
 .services {
     list-style-image: url(/public/images/huellas-de-perro.png) !important;
     padding-right: 10px !important;
+    font-size: large;
 }
 
 .red {
@@ -9,3 +10,4 @@
     text-decoration: none;
     font-size: 1.5em;
 }
+
