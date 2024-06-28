@@ -24,25 +24,37 @@
       background-image: url(/public/fondo2.jpg);
     }
 
+    /* fuentes de letra */
+
+    .text-formatoA {
+      display: flex;
+      font-family: Lucida Sans;
+      border-top: 30px;
+      font-weight: 900;
+      font-size: x-large;
+      text-align: justify;
+      align-items: center;
+
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 100% !important;
+      /* aqui se deja las imagenes con el mismo tamaño */
+      border-top-left-radius: calc(0.25rem - 1px);
+      border-top-right-radius: calc(0.25rem - 1px);
+    }
+
     ul {
       list-style-image: url(/public/huellas-de-perro.png);
       padding-right: 10px;
-    }
-    .home{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+
+      font-family: Lucida Sans;
+      border-top: 30px;
+      font-weight: 900;
+      font-size: x-large;
+      text-align: justify;
       align-items: center;
-    }
-    in-flex{
-      flex: 1;
-      min-width: 250px;
-    }
-    in-flex:first-child{
-      flex: 2;
-      padding: 25 px;
-      margin: 20 px;
-      margin-bottom: 0px;
     }
     td{
       width: 200px;
@@ -102,38 +114,32 @@
     <h4 style="text-align: center;">A continuación presentamos los servicios que ofrece Peluquería Canina Snoopy</h4>
     <br><br>
     <div class="container" style="background-color: #FFED9C;">
-      <section class="home">
-        <div class="in-flex" style="text-align: justify;">
-          <ul>
-            <p>
-              <li><h5><b>Baño antipulgas</b></h5></li>
-              <br>
-              <li><h5><b>Corte de pelo</b></h5></li>
-              <br>
-              <li><h5><b>Deslanado</b></h5></li>
-              <br>
-              <li><h5><b>Corte de uñas y limado</b></h5></li>
-              <br>
-              <li><h5><b>Limpieza de oídos</b></h5></li>
-              <br>
-              <li><h5><b>Drenaje de glándulas</b></h5></li>
-              <br>
-              <li><h5><b>Hidratación y despeje de almohadillas</b></h5></li>
-              <br>
-              <li><h5><b>Corte higiénico</b></h5></li>
-              <br>
-              <li><h5><b>Perfumado</b></h5></li>
-              <br>
-              <li><h5><b>Shampoo y acondicionador hipoalergénico</b></h5></li>
-              <br>
-              <li><h5><b>Moñitos y pañoletas</b></h5></li>
-              <br>
-            </p>
-          </ul>
-        </div>
-        <div class="in-flex">
-          <br>
-          <img class="mx-auto d-block" src="../public/servicios.png" alt="80%" width="80%"><br><br>
+      <section>
+        <div class="card mb-3" style=" background-color: #FFED9C; border-color: #FFED9C;">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <div class="card-body">
+                <ul>
+                  <p>
+                    <li><p><b>Baño antipulgas</b></p></li>
+                    <li><p><b>Corte de pelo</b></p></li>
+                    <li><p><b>Deslanado</b></p></li>
+                    <li><p><b>Corte de uñas y limado</b></p></li>
+                    <li><p><b>Limpieza de oídos</b></p></li>
+                    <li><p><b>Drenaje de glándulas</b></p></li>
+                    <li><p><b>Hidratación y despeje de almohadillas</b></p></li>
+                    <li><p><b>Corte higiénico</b></p></li>
+                    <li><p><b>Perfumado</b></p></li>
+                    <li><p><b>Shampoo y acondicionador hipoalergénico</b></p></li>
+                    <li><p><b>Moñitos y pañoletas</b></p></li>
+                  </p>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6" style="align-items:justify">
+              <img class="mx-auto d-block" src="../public/servicios.png" alt="80%" width="80%" style="align-items: center;""><br><br>
+            </div>
+          </div>
         </div>
       </section>
       <br><br>
