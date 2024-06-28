@@ -8,112 +8,113 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
    <!-- CSS PROPIO -->
 
-   <!-- font awesome-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
    <style>
      .navbar {
        margin: 0;
        border-radius: 0;
      }
-     body {
-       text-justify: auto;
-       font-family: 'Lucida Sans';
-       background-image: url('/public/fondo2.jpg');
-       background-repeat: repeat; 
-     }
-  
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-
-    .carousel-inner > .item > img {
-      min-width: 100%;
-      width: 100%;
-    }
-
-    @media (max-width: 600px) {
-      .carousel-caption {
-        display: none;
-      }
-    }
-
-    .contact-form-container {
-      background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+     .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 234, 117, 0.8); 
+      border-radius: 15px; 
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       margin-top: 20px;
+      margin-bottom: 20px;
+      min-height: calc(100vh - 56px);
+      justify-content: flex-start; 
+    }
+    .map-title {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    }
+    .map-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-radius: 15px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+      width: 600px;
+      height: 450px; 
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px; 
+    }
+
+    .card {
+      border-radius: 10px; 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+    .btn-shadow {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     }
   </style>
+
 </head>
 <body>
 
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg fs-5" style="background-color: #E799A3;">
-      <div class="container-fluid">
-        <a class="navbar-brand fs-2" href="/">
-          <img src="/public/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-          Peluquería Canina Snoopy
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/nosotros">Sobre nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/galeria">Galería de trabajos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/contacto">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/servicios">Servicios</a>
-            </li>
-          </ul>
-          <div class="d-flex">
-            <div class="btn-group">
-              <a href="https://api.whatsapp.com/message/IKSQLN7ZJCN2N1?autoload=1&app_absent=0" class="me-4 text-reset"><button class="btn btn-success me-2 fs-5" type="button" href="">¡Agenda una hora!</button></a>
-              
-              <button class="btn btn-outline-primary me-2 fs-5" type="button">Iniciar sesión</button>
-              <button class="btn btn-outline-primary me-2 fs-5" type="button">Registrarse</button>
+  <!-- Navigation bar -->
+  <%- include('./partials/navigation.ejs') %>
+  <!-- Navigation bar -->
+
+  <div class="container mt-5">
+    <div class="container content">
+      <!-- Mapa -->
+      <h1 class="map-title title my-5">¿Dónde encontrarnos?</h1>
+      <div class="map-container w-100 my-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d831.7283870049033!2d-70.5654542927582!3d-33.503626316881146!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d1d01153a529%3A0x13dc8aa2ac9541ec!2sPeluqueria%20Canina%20Snoopy!5e0!3m2!1ses-419!2scl!4v1719347542982!5m2!1ses-419!2scl" 
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <!-- Fin Mapa -->
+      
+      <!-- Tarjetas -->
+      <div class="container text-center d-flex justify-content-center my-5">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="/public/images/camioneta.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Luz Mery Guzmán, dueña y peluquera</h5>
+                <p class="card-text">¡Contáctame! ¡Hablemos por WhatsApp!</p>
+                <a href="https://wa.me/573173461294"><button type="button" class="btn btn-success btn-shadow">¡Escríbenos a nuestro WhatsApp!</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="/public/images/social-media.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Visita nuestras redes sociales</h5>
+                <p class="card-text">¡Conoce nuestros trabajos!</p>
+                <a href="https://www.facebook.com/profile.php?id=100082362460558" target="_blank" class="btn btn-primary btn-shadow mb-2"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.instagram.com/snoopy_peluqueria_canina/?hl=es" target="_blank" class="btn btn-danger btn-shadow mb-2"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@peluqueria.snoopy" target="_blank" class="btn btn-info btn-shadow"><i class="fab fa-tiktok"></i> TikTok</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </nav>
-    <!-- Navigation bar -->
+      <!-- Fin Tarjetas -->
 
-  <div class="container mt-5">
-    <div class="contact-form-container">
-      <h2>Contacto</h2>
-      <p>Para cualquier consulta, rellene el siguiente formulario y nos pondremos en contacto con usted lo antes posible.</p>
-
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo electrónico:</label>
-          <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Mensaje:</label>
-          <textarea class="form-control" id="message" rows="5" placeholder="Escriba su mensaje" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
     </div>
   </div>
 
-  <footer class="container-fluid text-center mt-5">
-    <p>Footer Text</p>
-  </footer>
+  <!-- Footer -->
+  <%- include('./partials/footer.ejs') %>
+  <!-- Fin Footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
