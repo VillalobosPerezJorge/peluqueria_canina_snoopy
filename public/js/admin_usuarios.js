@@ -16,6 +16,7 @@
 
     const actualizarBtn = card.querySelector('.btn-actualizar');
     actualizarBtn.textContent = 'Guardar';
+
     actualizarBtn.onclick = async () => {
         const inputs = card.querySelectorAll('input');
         const updatedData = {};
@@ -23,7 +24,13 @@
     
         inputs.forEach(input => {
             if (input.value.trim() !== '') {
-                updatedData[input.name] = input.value.trim();
+                if(input.name == 'phone'){
+                    updatedData[input.name] = parseInt(input.value.trim());
+                }else if(input.name == 'subscribed'){
+                    updatedData[input.name] = input.value.trim() == 'Si' ? true : false;
+                }else{
+                    updatedData[input.name] = input.value.trim();
+                }
             }
         });
 
@@ -54,6 +61,10 @@
             fields.forEach(field => {
                 const fieldElement = card.querySelector(`.user-${field}`);
                 if (fieldElement) {
+                    if(field == 'subscribed'){
+                        updatedData[field] = data.user[field] == true? 'Si' : 'No'
+                        fieldElement.innerHTML = `${field.charAt(0).toUpperCase() + field.slice(1)}: ${updatedData[field] || ''}`;
+                    }
                     fieldElement.innerHTML = `${field.charAt(0).toUpperCase() + field.slice(1)}: ${updatedData[field] || ''}`;
                 }
             });
@@ -61,6 +72,12 @@
       
             actualizarBtn.textContent = 'Actualizar';
             actualizarBtn.onclick = () => actualizarUsuario(userId);
+
+            if(data.status === 'Success'){
+                Swal.fire('Success', data.message, 'success');
+              }else{
+                Swal.fire('Error', data.message, 'error');
+              }
 
         } catch (error) {
             console.error('Error al actualizar usuario:', error);
@@ -102,12 +119,12 @@ window.onload = async () => {
 
    
     // Función para eliminar un usuario específico
-    window.eliminarUsuario = async (userId) => {
+    const eliminarUsuario = async (userId) => {
         const token = localStorage.getItem('token'); 
 
         try {
             const response = await fetch(`http://18.231.252.59/api/user/delete/${userId}`, {
-                method: 'DELETE',
+                method: 'POST',
                 headers: {
                     'Content-type': 'application/json; charset=utf-8',
                     'Authorization': token
@@ -143,9 +160,9 @@ window.onload = async () => {
             }
 
             if (usuario.subscribed === true) {
-                usuario.subscribed = 'Está suscrito';
+                usuario.subscribed = 'Si';
             } else if (usuario.subscribed === false) {
-                usuario.subscribed = 'No está suscrito';
+                usuario.subscribed = 'No';
             }
 
             return usuario;
@@ -157,7 +174,7 @@ window.onload = async () => {
             const actualizarBtn = `<button type='button' class='btn btn-warning btn-actualizar' onclick="actualizarUsuario('${usuario._id}')">Actualizar</button>`;
             const eliminarBtn = `<button type='button' class='btn btn-danger' onclick="eliminarUsuario('${usuario._id}')">Eliminar</button>`;
 
-            return `<!-- Galería-->
+            return `
             <div id="user-card-${usuario._id}" class="card d-flex flex-column gap-1 justify-content-center card-responsive">
                 <div class="card-body text-center">
                     <p class="subtitle card-text fw-bold fs-3 my-3">Tipo de usuario: ${usuario.role}</p>
