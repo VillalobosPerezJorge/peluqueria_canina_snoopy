@@ -34,9 +34,9 @@
             }
         });
 
-        console.log('Datos actualizados:', updatedData); 
-        console.log('User ID:', userId); 
-        console.log('Token:', token); 
+        // console.log('Datos actualizados:', updatedData); 
+        // console.log('User ID:', userId); 
+        // console.log('Token:', token); 
 
         try {
             const response = await fetch(`http://18.231.252.59/api/user/update/${userId}`, {
@@ -49,9 +49,9 @@
             });
 
             if (!response.ok) {
-                const errorText = await response.text();
+                const errorText = await response.json();
                 console.error('Respuesta del servidor:', errorText); // Depuración
-                throw new Error(`HTTP error! status: ${response.status}`);
+                Swal.fire('Error', errorText.message, 'error');
             }
 
             const data = await response.json();
@@ -75,76 +75,85 @@
 
             if(data.status === 'Success'){
                 Swal.fire('Success', data.message, 'success');
-              }else{
+            }else{
                 Swal.fire('Error', data.message, 'error');
-              }
+            }
 
         } catch (error) {
-            console.error('Error al actualizar usuario:', error);
+            console.log('Error al intentar actualizar al usuario', error);
         }
     };
 };
 
+// Función para obtener la lista de usuarios desde el servidor
+const obtenerListaUsuarios = async () => {
+    const token = localStorage.getItem('token');
+
+    // obtener pagina actual
+    const windowURL = window.location.href;
+    const windowURLSplitted = windowURL.split('/');
+    const windowPage = Number.parseInt(windowURLSplitted[windowURLSplitted.length - 1]);
+
+    try {
+        const response = await fetch(`http://18.231.252.59/api/user/listUsers/${windowPage}`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json; charset=utf-8',
+                'Authorization': token
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.data;
+
+    } catch (error) {
+        console.error('Error al obtener la lista de usuarios:', error);
+        throw error;
+    }
+};
 
 
+// Función para eliminar un usuario específico
+const eliminarUsuario = async (userId) => {
+    const token = localStorage.getItem('token'); 
 
-window.onload = async () => {
+    try {
+        const response = await fetch(`http://18.231.252.59/api/user/delete/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json; charset=utf-8',
+                'Authorization': token
+            }
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            Swal.fire('Error', data.message, 'error');
+        }
+
+        Swal.fire('Success', data.message, 'success')
+            .then(result => result.json())
+            .then(res => {
+                if(res.isConfirmed) window.location.reload();
+            })
+            .finally(res => window.location.reload());
+
+
+    } catch (error) {
+        console.error('Error al eliminar usuario:', error);
+    }
+};
+
+
+const cargarLista = async () => {
     const galeria = document.querySelector('#galeria');
     const loader = document.querySelector('#loader');
     const paginationDiv = document.querySelector('#pagination');
-
-    // Función para obtener la lista de usuarios desde el servidor
-    const obtenerListaUsuarios = async () => {
-        const token = localStorage.getItem('token'); 
-        try {
-            const response = await fetch('http://18.231.252.59/api/user/list', {
-                method: 'GET',
-                headers: {
-                    'Content-type': 'application/json; charset=utf-8',
-                    'Authorization': token
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error al obtener la lista de usuarios:', error);
-            throw error;
-        }
-    };
-
-   
-    // Función para eliminar un usuario específico
-    const eliminarUsuario = async (userId) => {
-        const token = localStorage.getItem('token'); 
-
-        try {
-            const response = await fetch(`http://18.231.252.59/api/user/delete/${userId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json; charset=utf-8',
-                    'Authorization': token
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            console.log('Usuario eliminado:', data);
-
-
-        } catch (error) {
-            console.error('Error al eliminar usuario:', error);
-        }
-    };
-
-
 
     try {
         // Llamar a la función para obtener la lista de usuarios
@@ -251,4 +260,9 @@ window.onload = async () => {
     } catch (error) {
         console.error('Error al cargar la lista de usuarios:', error);
     }
+}
+
+
+window.onload = () => {
+    cargarLista();
 };
