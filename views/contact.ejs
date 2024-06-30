@@ -10,57 +10,9 @@
 
    <!-- Font Awesome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="../public/css/contact.css">
 
-   <style>
-     .navbar {
-       margin: 0;
-       border-radius: 0;
-     }
-     .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: rgba(255, 234, 117, 0.8); 
-      border-radius: 15px; 
-      padding: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      min-height: calc(100vh - 56px);
-      justify-content: flex-start; 
-    }
-    .map-title {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
-    }
-    .map-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      border-radius: 15px; 
-      overflow: hidden; 
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-      width: 600px;
-      height: 450px; 
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 15px; 
-    }
 
-    .card {
-      border-radius: 10px; 
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    }
-
-    .btn-shadow {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    }
-  </style>
 
 </head>
 <body>
@@ -69,7 +21,8 @@
   <%- include('./partials/navigation.ejs') %>
   <!-- Navigation bar -->
 
-  <div class="container mt-5">
+  <div class="container">
+    <br>
     <div class="container content">
       <!-- Mapa -->
       <h1 class="map-title title my-5">¿Dónde encontrarnos?</h1>
