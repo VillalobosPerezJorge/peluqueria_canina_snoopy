@@ -120,6 +120,11 @@ app.get('/admin', (req, res) => {
   res.render('admin/admin');
 });
 
+app.get('/admin_usuarios', (req, res) => {
+  res.render('admin/admin_users');
+});
+
+
 app.get('/admin_galeria', (req, res) => {
   res.render('admin/admin_gallery');
 });
