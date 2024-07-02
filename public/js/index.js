@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const carouselInner = document.querySelector('.carousel-inner');
     const carouselItems = document.querySelectorAll('.carousel-item');
+    const carouselIndicators = document.querySelector('.carousel-indicators');
     const carouselPrevButton = document.querySelector('.carousel-control-prev');
     const carouselNextButton = document.querySelector('.carousel-control-next');
-    const apiUrl = 'http://18.231.252.59/api/banner/list?active=true';
+    const apiUrl = 'http://18.231.252.59/api/banner/list';
     const defaultImageUrl = '/public/images/perro1.jpg'; // Ruta de la imagen por defecto
 
 
@@ -18,6 +19,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         const data = await response.json();
+
+        let banners = [];
+        let indicators = [];
 
         if (data.status === 'Success' && data.banners && data.banners.banners.length > 0) {
             data.banners.banners.forEach((banner, index) => {
@@ -39,8 +43,24 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <p>${banner.description}</p>
                         `;
                     }
+
+                    let bannerString = index == 0 ? `<div class="carousel-item active">
+                        <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                    </div>` : `<div class="carousel-item">
+                        <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                    </div>`
+
+                    let indicatorString = index == 0 ? `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
+                    aria-current="true" aria-label="Slide ${index + 1}" class="active"></button>` : `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
+                    aria-current="true" aria-label="Slide ${index + 1}"></button>`
+
+                    banners.push(bannerString);
+                    indicators.push(indicatorString);
                 }
             });
+
+            carouselInner.innerHTML = banners.join('');
+            carouselIndicators.innerHTML = indicators.join('');
 
        
             const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators'), {

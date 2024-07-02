@@ -10,6 +10,16 @@ body {
     background-repeat: repeat; 
 }
 
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1920px;
+    }
+}
+
+.container{
+    width: 85% !important;
+}
+
 .title {
     font-family: "pattaya" !important;
     font-weight: bold !important;
@@ -17,7 +27,7 @@ body {
     color: #DA0E83 !important;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);  */
     padding-top: 30px;
 }
 
