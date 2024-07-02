@@ -4,7 +4,7 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     
-    background-image: url(public/images/patron_patitas\ 70x70.png);
+    background-image: url('../images/patron_patitas\ 70x70.png');
   }
  
   #img_carousel {
