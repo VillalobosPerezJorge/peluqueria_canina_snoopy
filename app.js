@@ -161,6 +161,11 @@ app.get('/admin_banner_imagen', (req, res) => {
   res.render('admin/admin_banner_image');
 });
 
+app.get('/admin_banner_editar', (req, res) => {
+  res.render('admin/admin_banner_edit');
+});
+
+
 app.get('/admin/vista-banner-inactivos/:page?', (req, res) => {
   res.render('admin/admin_banner_disabled');
 });
