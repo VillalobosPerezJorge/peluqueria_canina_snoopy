@@ -17,11 +17,33 @@ body {
 }
 
 .btn-outline-primary:hover {
-  background-color: #d82a64; /* Cambia el color de fondo al hacer hover */
-  color: #583047; /* Cambia el color del texto al hacer hover */
+  background-color: #d82a64; 
+  color: #583047; 
 }
 
 img-comparison-slider {
   outline: none;
 }
 
+input {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
