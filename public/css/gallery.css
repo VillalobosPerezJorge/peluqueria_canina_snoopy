@@ -5,6 +5,7 @@ body {
     font-family: 'Lucida Sans';
     background-image: url('/public/images/patron_patitas\ 70x70.png');
     background-repeat: repeat; 
+    padding-top: 80px;
 }
 
 #main {
