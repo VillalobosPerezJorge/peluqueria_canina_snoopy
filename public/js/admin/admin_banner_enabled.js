@@ -38,7 +38,7 @@ const cargarBannersActivos = async (windowPage) => {
                 </div>
                 <div class="buttons w-100 d-flex flex-row justify-content-around mt-2 mb-4">
                     <button type="button" value='${banner._id}' class="boton_habilitar btn btn-info fs-5 fw-bold">Deshabilitar</button>
-                    <a href="#"><button class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button></a>
+                    <button type="button" value='${banner._id}' class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button>
                     <button type="button" value='${banner._id}' class="boton_eliminar btn btn-danger fs-5 fw-bold">Eliminar</button>
                 </div>
             </div>`).join('');
@@ -93,6 +93,23 @@ const cargarBannersActivos = async (windowPage) => {
 
             const btns_eliminar = document.querySelectorAll('.boton_eliminar');
             const btns_habilitar = document.querySelectorAll('.boton_habilitar');
+            const btns_editar = document.querySelectorAll('.boton_editar');
+
+            btns_editar.forEach(btn =>{
+                btn.addEventListener('click', async e =>{
+                    const bannerId = e.target.value;
+
+                    e.preventDefault();
+                    try{
+                    localStorage.setItem('bannerId', bannerId);
+                    window.location.href = `/admin_banner_editar?postId=${bannerId}`;
+
+                    }catch (error) {
+                        Swal.fire('Error', 'Error al ejecutar la funcion', 'error');
+                    }
+                })
+            })
+
 
             btns_eliminar.forEach(btn => {
                 btn.addEventListener('click', async e => {
@@ -153,6 +170,7 @@ const cargarBannersActivos = async (windowPage) => {
             });
 
         }, 0);
+
     } catch (error) {
         console.error(error);
     }

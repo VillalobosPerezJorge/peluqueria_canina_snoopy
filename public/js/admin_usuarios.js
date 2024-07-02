@@ -1,3 +1,62 @@
+// Función cambiar rol
+const cambiarRolUsuario = async (userId) => {
+    const token = localStorage.getItem('token');
+    const usuario = usuariosGlobal.find(user => user._id === userId);
+    let rolUsuario = usuario.role;
+
+    if (rolUsuario === 'role-admin') {
+        rolUsuario = 'role-user';
+    } else if (rolUsuario === 'role-user') {
+        rolUsuario = 'role-admin';
+    }
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: `Vas a cambiar el rol del usuario ${usuario.name} a ${rolUsuario === 'role-admin' ? 'Administrador' : 'Cliente'}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, cambiar',
+        cancelButtonText: 'No, cancelar'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+    try {
+        const response = await fetch(`http://18.231.252.59/api/user/changeRole/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json; charset=utf-8',
+                'Authorization': token
+            },
+            body: JSON.stringify({ role: rolUsuario }) 
+        });
+
+        if (!response.ok) {
+            const errorText = await response.json();
+            console.error('Respuesta del servidor:', errorText);
+            Swal.fire('Error', errorText.message, 'error');
+            return; 
+        }
+
+        const data = await response.json();
+        console.log('Usuario actualizado:', data);
+
+        // Actualizar el rol en usuariosGlobal
+        usuario.role = rolUsuario;
+     // Mostrar éxito al usuario
+     Swal.fire('Éxito', 'El rol del usuario ha sido actualizado', 'success');
+    } catch (error) {
+        console.log('Error al intentar cambiar de rol al usuario', error);
+        Swal.fire('Error', 'Hubo un problema al intentar cambiar el rol del usuario', 'error');
+    }
+        }
+        }).finally(() => {
+        // Recargar la página
+        window.location.reload();
+        });
+        };
+
+ 
+ 
+ 
+ 
  // Función para actualizar un usuario específico
  const actualizarUsuario = async (userId) => {
     const token = localStorage.getItem('token');
@@ -34,9 +93,7 @@
             }
         });
 
-        // console.log('Datos actualizados:', updatedData); 
-        // console.log('User ID:', userId); 
-        // console.log('Token:', token); 
+
 
         try {
             const response = await fetch(`http://18.231.252.59/api/user/update/${userId}`, {
@@ -108,6 +165,7 @@ const obtenerListaUsuarios = async () => {
         }
 
         const data = await response.json();
+        usuariosGlobal = data.data.users || []; 
         return data.data;
 
     } catch (error) {
@@ -120,6 +178,7 @@ const obtenerListaUsuarios = async () => {
 // Función para eliminar un usuario específico
 const eliminarUsuario = async (userId) => {
     const token = localStorage.getItem('token'); 
+
 
     try {
         const response = await fetch(`http://18.231.252.59/api/user/delete/${userId}`, {
@@ -148,6 +207,7 @@ const eliminarUsuario = async (userId) => {
         console.error('Error al eliminar usuario:', error);
     }
 };
+
 
 
 const cargarLista = async () => {
@@ -179,9 +239,10 @@ const cargarLista = async () => {
 
         // Crear elementos HTML para cada usuario
         const elementosHTML = usuarios.map(usuario => {
-            // Botones para actualizar y eliminar cada usuario
+            // Botones para actualizar y eliminar cada usuario || Se agrega botón para convertir usuario en administrador 
             const actualizarBtn = `<button type='button' class='btn btn-warning btn-actualizar' onclick="actualizarUsuario('${usuario._id}')">Actualizar</button>`;
             const eliminarBtn = `<button type='button' class='btn btn-danger' onclick="eliminarUsuario('${usuario._id}')">Eliminar</button>`;
+            const cambiarRolBtn = `<button type='button' class='btn btn-info' onclick="cambiarRolUsuario('${usuario._id}')">Cambiar rol</button>`;
 
             return `
             <div id="user-card-${usuario._id}" class="card d-flex flex-column gap-1 justify-content-center card-responsive">
@@ -196,6 +257,8 @@ const cargarLista = async () => {
                     <p class="card-text my-1 fst-italic fs-6 user-subscribed">¿Está suscrito?: ${usuario.subscribed}</p>
                     ${actualizarBtn} <!-- Botón de actualizar -->
                     ${eliminarBtn} <!-- Botón de eliminar -->
+                    ${cambiarRolBtn} <!-- Botón de cambio de rol -->
+                    
                 </div>
             </div>`;
         }).join('');
