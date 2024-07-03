@@ -43,7 +43,10 @@
 }
 
 .admin-title {
-    font-size: 0.7em !important;
+    color: rgba(255, 255, 255, 0.733) !important;
+    font-size: 1em !important;
+    margin-left: -.5em !important;
+    margin-right: .5em !important;
 }
 
 .btn-panel{
