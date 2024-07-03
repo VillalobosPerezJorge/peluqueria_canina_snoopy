@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const carouselInner = document.querySelector('.carousel-inner');
     // const carouselItems = document.querySelectorAll('.carousel-item');
+    const hidden_btns = document.getElementsByClassName('hidden_btn')
     const carouselIndicators = document.querySelector('.carousel-indicators');
     const carouselPrevButton = document.querySelector('.carousel-control-prev');
     const carouselNextButton = document.querySelector('.carousel-control-next');
     const apiUrl = 'http://18.231.252.59/api/banner/list';
     const defaultImageUrl = '/public/images/perro1.jpg'; // Ruta de la imagen por defecto
 
+    
 
     try {
         const response = await fetch(apiUrl, {
@@ -48,6 +50,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             carouselInner.innerHTML = banners.join('');
             carouselIndicators.innerHTML = indicators.join('');
+
+
+            // mostrar los botones de anterior y siguiente del banner
+            for(let i = 0; i < hidden_btns.length; i++ ){
+                if(hidden_btns[i].name == 'prev'){
+                    hidden_btns[i].setAttribute('class', 'carousel-control-prev');
+                }
+                
+                if(hidden_btns[i].name == 'next'){
+                    hidden_btns[i].setAttribute('class', 'carousel-control-next');
+                }
+            }
+            
 
        
             const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators'), {

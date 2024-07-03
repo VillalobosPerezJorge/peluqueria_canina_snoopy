@@ -20,6 +20,10 @@ footer {
     object-fit: cover;
 }
 
+.hidden_btn{
+    display: none !important;
+}
+
 /* .perro-mes-container {
 font-family: "Spicy Rice", serif !important;
 } */
