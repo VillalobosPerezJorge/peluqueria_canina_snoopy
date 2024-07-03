@@ -40,19 +40,30 @@ const accion_botones_navbar_logged = () => {
         const btn_logout = document.getElementById('btn-logout');
 
         btn_logout.addEventListener('click', () => {
-            localStorage.clear();
+            limpiarLocalStorage();
             window.location.href = '/';
-        })
+        });
 
         btn_perfil.addEventListener('click', () => {
             window.location.href = '/mi_perfil';
-        })
+        });
     
         if(btn_panel) {
             btn_panel.addEventListener('click', () => {
               window.location.href = '/admin';
             });
-        }
+        };
+}
+
+const limpiarLocalStorage = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('role');
+    localStorage.removeItem('name');
+    localStorage.removeItem('surname');
+    localStorage.removeItem('email');
+    localStorage.removeItem('address');
+    localStorage.removeItem('phone');
 }
 
 marcarPaginaActual();

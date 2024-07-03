@@ -58,8 +58,8 @@
 
         <form>
           <div class="mb-3">
-            <label for="email" class="form-label" style="font-size: larger;">Correo electrónico:</label>
-            <input type="email" class="form-control" id="login_email" placeholder="Ingrese su correo electrónico"
+            <label for="email" class="form-label" style="font-size: larger;">Correo electrónico ó Username:</label>
+            <input type="email" class="form-control" id="login_email" placeholder="Ingrese su correo electrónico o username"
               required>
           </div>
           <div class="mb-3">
@@ -68,10 +68,10 @@
           </div>
           <br>
           <div class="checkbox">
+            <a href="./password-recovery">¿Olvidaste tu contraseña?</a>
+            <br><br>
             <label>
-              <a href="./password-recovery">¿Olvidaste tu contraseña?</a>
-              <br><br>
-              <input type="checkbox" name="remember" value="1"> Recuérdame
+              <input type="checkbox" id="remember" name="remember"> Recuérdame
             </label>
           </div>
           <br>
@@ -95,59 +95,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
       <script src="../public/js/general-user.js"></script>
 
-      <script>
-        document.querySelector('#btn-login').addEventListener('click', async (event) => {
-          event.preventDefault();
-
-          const username = document.getElementById('login_email').value;
-          const password = document.getElementById('login_password').value;
-
-          const datos = { username, password };
-
-          try {
-            const response = await fetch('http://18.231.252.59/api/user/login', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(datos)
-            });
-
-
-            const responseJson = await response.json();
-            const user = responseJson.user;
-            const role = user.role;
-            const name = user.name;
-            const surname = user.surname;
-            const email = user.email;
-            const address = user.address;
-            const phone = user.phone;
-
-            if (response.ok) {
-              localStorage.setItem('token', responseJson.token);
-              localStorage.setItem('isLoggedIn', 'true');
-              localStorage.setItem('role', role);
-              localStorage.setItem('name', name);
-              localStorage.setItem('surname', surname);
-              localStorage.setItem('email', email);
-              localStorage.setItem('address', address);
-              localStorage.setItem('phone', phone);
-              Swal.fire('Success', responseJson.message, 'success').then(() => {
-                if (role === 'role-admin') {
-                  window.location.href = '/admin';
-                } else {
-                  window.location.href = '/';
-                }
-              });
-            } else {
-              Swal.fire('Error', responseJson.message, 'error');
-            }
-          } catch (error) {
-            console.error('Error al enviar la solicitud:', error);
-            Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
-          }
-        });
-      </script>
+      <script src="../public/js/login.js"></script>
 </body>
 
 </html>
