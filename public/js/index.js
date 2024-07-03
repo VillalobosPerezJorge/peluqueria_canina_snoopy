@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const carouselInner = document.querySelector('.carousel-inner');
-    const carouselItems = document.querySelectorAll('.carousel-item');
+    // const carouselItems = document.querySelectorAll('.carousel-item');
     const carouselIndicators = document.querySelector('.carousel-indicators');
     const carouselPrevButton = document.querySelector('.carousel-control-prev');
     const carouselNextButton = document.querySelector('.carousel-control-next');
@@ -25,38 +25,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (data.status === 'Success' && data.banners && data.banners.banners.length > 0) {
             data.banners.banners.forEach((banner, index) => {
-                if (index < carouselItems.length) {
-                    let imageUrl = defaultImageUrl; 
 
-                    if (banner.image) {
-                        imageUrl = `http://18.231.252.59/api/banner/showimage/${banner._id}`;
-                    }
+                let bannerString = index == 0 ? `<div class="carousel-item active">
+                    <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                </div>` : `<div class="carousel-item">
+                    <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                </div>`
 
-                    const imgElement = carouselItems[index].querySelector('img');
-                    imgElement.src = imageUrl;
-                    imgElement.alt = banner.title;
+                let indicatorString = index == 0 ? `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
+                aria-current="true" aria-label="Slide ${index + 1}" class="active"></button>` : `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
+                aria-current="true" aria-label="Slide ${index + 1}"></button>`
 
-                    const captionElement = carouselItems[index].querySelector('.carousel-caption');
-                    if (captionElement) {
-                        captionElement.innerHTML = `
-                            <h5>${banner.title}</h5>
-                            <p>${banner.description}</p>
-                        `;
-                    }
-
-                    let bannerString = index == 0 ? `<div class="carousel-item active">
-                        <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
-                    </div>` : `<div class="carousel-item">
-                        <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
-                    </div>`
-
-                    let indicatorString = index == 0 ? `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
-                    aria-current="true" aria-label="Slide ${index + 1}" class="active"></button>` : `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
-                    aria-current="true" aria-label="Slide ${index + 1}"></button>`
-
-                    banners.push(bannerString);
-                    indicators.push(indicatorString);
-                }
+                banners.push(bannerString);
+                indicators.push(indicatorString);
+                
             });
 
             carouselInner.innerHTML = banners.join('');
