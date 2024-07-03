@@ -36,6 +36,12 @@ body {
     color: #DA0E83 !important;
 }
 
+.info {
+    color: red !important;
+    font-style: italic !important;
+    font-weight: bold;
+}
+
 #main {
     background-color: #FFED9C !important;
     max-width: none !important;

@@ -54,32 +54,32 @@ const cargarPosts = async (windowPage) => {
 
     for(let i = dataPage - 1; i <= dataPage + 1; i++){
       if(i !== 0 && i <= totalPages){
-        pagesArray.push(`<li class="page-item"><a class="page-link ${dataPage == i ? 'active' : ''}" href="/galeria/${i}">${i}</a></li>`);
+        pagesArray.push(`<li class="page-item"><a class="page-link ${dataPage == i ? 'active' : ''}" href="/admin/vista-banner-inactivos/${i}">${i}</a></li>`);
       } else if(i == 1) {
-        pagesArray = [`<li class="page-item"><a class="page-link ${dataPage == 1 ? 'active' : ''}" href="/galeria/1">1</a></li>`]
+        pagesArray = [`<li class="page-item"><a class="page-link ${dataPage == 1 ? 'active' : ''}" href="/admin/vista-banner-inactivos/1">1</a></li>`]
       }
     }
 
     pagesArray.unshift(`
   <li class="page-item">
-    <a class="page-link ${data.hasPrevPage ? '' : 'disabled'}"  href="/galeria/1" aria-label="Previous">
+    <a class="page-link ${data.hasPrevPage ? '' : 'disabled'}"  href="/admin/vista-banner-inactivos/1" aria-label="Previous">
       <span aria-hidden="true">Inicio</span>
     </a>
   </li>
   <li class="page-item">
-    <a class="page-link ${data.hasPrevPage ? '' : 'disabled'}" href="/galeria/${dataPage - 1}" aria-label="Previous">
+    <a class="page-link ${data.hasPrevPage ? '' : 'disabled'}" href="/admin/vista-banner-inactivos/${dataPage - 1}" aria-label="Previous">
       <span aria-hidden="true">&laquo;</span>
     </a>
   </li>`);
 
   pagesArray.push(`
   <li class="page-item">
-    <a class="page-link ${data.hasNextPage ? '' : 'disabled'}" href="/galeria/${dataPage + 1}" aria-label="Next">
+    <a class="page-link ${data.hasNextPage ? '' : 'disabled'}" href="/admin/vista-banner-inactivos/${dataPage + 1}" aria-label="Next">
       <span aria-hidden="true">&raquo;</span>
     </a>
   </li>
   <li class="page-item">
-    <a class="page-link ${data.hasNextPage ? '' : 'disabled'}" href="/galeria/${totalPages}" aria-label="Next">
+    <a class="page-link ${data.hasNextPage ? '' : 'disabled'}" href="/admin/vista-banner-inactivos/${totalPages}" aria-label="Next">
       <span aria-hidden="true">última</span>
     </a>
   </li>`);

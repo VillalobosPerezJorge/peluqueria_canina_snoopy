@@ -26,18 +26,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.status === 'Success' && data.banners && data.banners.banners.length > 0) {
             data.banners.banners.forEach((banner, index) => {
 
-                let bannerString = index == 0 ? `<div class="carousel-item active">
-                    <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
-                </div>` : `<div class="carousel-item">
-                    <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
-                </div>`
+                // limitar la cantidad de post del banner a 5
+                if(index >= 0 && index < 5){
 
-                let indicatorString = index == 0 ? `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
-                aria-current="true" aria-label="Slide ${index + 1}" class="active"></button>` : `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
-                aria-current="true" aria-label="Slide ${index + 1}"></button>`
+                    let bannerString = index == 0 ? `<div class="carousel-item active">
+                        <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                    </div>` : `<div class="carousel-item">
+                        <img src="http://18.231.252.59/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                    </div>`
+    
+                    let indicatorString = index == 0 ? `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
+                    aria-current="true" aria-label="Slide ${index + 1}" class="active"></button>` : `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
+                    aria-current="true" aria-label="Slide ${index + 1}"></button>`
+    
+                    banners.push(bannerString);
+                    indicators.push(indicatorString);
 
-                banners.push(bannerString);
-                indicators.push(indicatorString);
+                }
                 
             });
 
