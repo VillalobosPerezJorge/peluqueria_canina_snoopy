@@ -44,7 +44,7 @@ const cargarPosts = async (windowPage) => {
 
       <div class="buttons w-100 d-flex flex-row justify-content-around mt-2 mb-4">
         <button type="button" value='${post._id}' class="boton_habilitar btn btn-info fs-5 fw-bold">Habilitar</button>
-        <a href="#"><button class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button></a>
+        <button type="button" value='${post._id}' class="boton_editar btn btn-warning fs-5 fw-bold">Editar</button>
         <button type="button" value='${post._id}' class="boton_eliminar btn btn-danger fs-5 fw-bold">Eliminar</button>
       </div>
     </div>`).join('');
@@ -105,6 +105,7 @@ const cargarPosts = async (windowPage) => {
 
         const btns_eliminar = document.querySelectorAll('.boton_eliminar');
         const btns_habilitar = document.querySelectorAll('.boton_habilitar');
+        const btns_editar = document.querySelectorAll('.boton_editar');
         
         btns_eliminar.forEach(btn => {
           // Acción del boton eliminar
@@ -132,6 +133,27 @@ const cargarPosts = async (windowPage) => {
               }else{
                 Swal.fire('Error', responseJson.message, 'error');
               }
+            } catch (error) {
+              Swal.fire('Error', 'Error al ejecutar la funcion', 'error');
+            }
+
+          })
+        });
+
+        btns_editar.forEach(btn => {
+          // Acción del boton editar
+          btn.addEventListener('click', async e => {
+            const postId = e.target.value;
+            const token = localStorage.getItem('token');
+
+            e.preventDefault();
+              // Guarda el ID del post en localStorage
+            localStorage.setItem('postId', postId);
+           try
+           {
+            
+            window.location.href = `/admin_actualizar_galeria?postId=${postId}`; 
+
             } catch (error) {
               Swal.fire('Error', 'Error al ejecutar la funcion', 'error');
             }
