@@ -25,10 +25,12 @@ document.querySelector('#btn-login').addEventListener('click', async (event) => 
       const email = user.email;
       const address = user.address;
       const phone = user.phone;
+      const username = user.username;
 
       if (response.ok) {
         localStorage.setItem('token', responseJson.token);
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
         localStorage.setItem('role', role);
         localStorage.setItem('name', name);
         localStorage.setItem('surname', surname);
