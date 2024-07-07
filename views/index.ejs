@@ -49,24 +49,29 @@
     <!-- Fin Carrusel -->
   
     <!-- Perro del mes -->
-    <div class="container py-5">
+    <div class="container-fluid py-5">
       <div class="col-lg-12 text-center my-2">
-        <h1 class="title">
-          Nuestro perrito del mes</h1>
+        <h1 class="title">Nuestro perrito del mes</h1>
         <h2 class="mb-2" style="color: #DA0E83;">
           ¡Descubre si tu peludito es nuestro destacado del mes!
         </h2>
       </div>
-    </div>
-    <div class="row justify-content-center pb-2">
-      <div class="mes" id="perro-del-mes" style="box-shadow:0 8px 6px -6px rgba(0, 0, 0, 0.5);border-radius: 15px; width: 100%; height: auto;">
-    
+      <div class="row justify-content-center pb-2">
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-8" id="perro-del-mes">
+              <img class="img-fluid" alt="Perro del mes" style="border-radius: 15px;">
+            </div>
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+              <div id="nombre-perro" class="mb-3 text-center"></div>
+              <div id="datos-perro" class="mb-3 text-center"></div> 
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Fin perro del mes -->
-</div>
+    <!-- Fin perro del mes -->
+    </div>
 
 
     <!-- Footer -->
@@ -76,7 +81,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../public/js/general-user.js"></script>
 
-    <!-- Script para funcionamiento del banner-->
+    <!-- Script para funcionamiento del banner/Perro del mes-->
     <script src="../public/js/index.js"></script>
 
 </body>

@@ -32,8 +32,12 @@ body {
 }
 
 .subtitle {
-    font-family: 'Spicy Rice' !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 400;
     color: #DA0E83 !important;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .info {

@@ -89,15 +89,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const insertarPerroDelMes = async () => {
     const perroDelMesDiv = document.querySelector('#perro-del-mes');
+    const perroDelMesNombre = document.querySelector('#nombre-perro');
+    const perroDelMesDatos = document.querySelector('#datos-perro');
 
     try {
         const response = await fetch('http://18.231.252.59/api/post/findSelected');
         const responseJson = await response.json();
 
         const postId = responseJson.post._id;
-
-        perroDelMesDiv.innerHTML = `<img class="img-fluid w-100" src="http://18.231.252.59/api/post/showImage/${postId}/2" alt="imagen del perro del mes">`
-
+        const postTitle = responseJson.post.title;
+        const postDescription = responseJson.post.description;
+        perroDelMesDiv.innerHTML = `<img class="img-fluid w-100" src="http://18.231.252.59/api/post/showImage/${postId}/2" alt="imagen del perro del mes" style="border-radius: 15px 50px; box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5)">`
+        perroDelMesNombre.innerHTML = `<h2 class="subtitle">¡Felicidades, ${postTitle}!</h2>`
+        perroDelMesDatos.innerHTML = `<h4>¿Qué sabemos del Ángel Peludito de este mes?</h4><br><p>${postDescription}</p>`
     } catch (error) {
         console.error('Error al intentar buscar el perro del mes: ', error);
     }
