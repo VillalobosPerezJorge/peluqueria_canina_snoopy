@@ -140,7 +140,7 @@ submit_button.addEventListener('click', async(event)=>{
     }
     
     try {
-        const response = await fetch('https://api-pelu-canina-snoopy.onrender.com/api/user/register', options) 
+        const response = await fetch('https://angelespeluditos.cl/api//api/user/register', options) 
         const response_json = await response.json();
 
         if (response.ok) {

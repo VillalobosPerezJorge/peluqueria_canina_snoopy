@@ -1,0 +1,27 @@
+.navbar {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  body{
+   text-justify: auto;
+   font-family: 'Lucida Sans';
+   background-image: url(/public/images/patron_patitas\ 70x70.png);
+ }
+  .list-with-dots {
+
+    list-style: disc; 
+    padding-left: 20px; 
+  }
+  .list-with-dots li {
+    list-style-position: inside; 
+  }
+  .card {
+    text-align: justify;
+    font-size: larger;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 0; 
+  }
+  .card img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }

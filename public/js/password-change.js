@@ -41,11 +41,16 @@ btn_cambiar.addEventListener('click', async (event) => {
     }
 
     try {
-        const response = await fetch(`https://api-pelu-canina-snoopy.onrender.com/api/user/passwordReset/${token}`, options);
+        const response = await fetch(`https://angelespeluditos.cl/api//api/user/passwordReset/${token}`, options);
         const response_json = await response.json();
 
         if(response_json.status == 'Success'){
-            swal.fire('Success', response_json.message, 'success');
+            swal.fire('Success', response_json.message, 'success')
+                .then(result => result.json())
+                .then(res => {
+                    if(res.isConfirmed) window.location.href = '/'
+                })
+                .finally(res => window.location.href = '/');
         }else{
             swal.fire('Error', response_json.message, 'error');
         }
