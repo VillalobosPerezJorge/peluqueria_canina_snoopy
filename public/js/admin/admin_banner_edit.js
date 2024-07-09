@@ -5,7 +5,7 @@ window.onload = async () => {
     console.log(bannerId);
 
     try {
-        const response = await fetch(`http://18.231.252.59/api/banner/find/${bannerId}`, {
+        const response = await fetch(`https://angelespeluditos.cl/api//api/banner/find/${bannerId}`, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -53,7 +53,7 @@ document.getElementById('editarBannerForm').addEventListener('submit', async (ev
     };
 
     try {
-        const response = await fetch(`http://18.231.252.59/api/banner/update/${bannerId}`, options);
+        const response = await fetch(`https://angelespeluditos.cl/api//api/banner/update/${bannerId}`, options);
         const responseJson = await response.json();
 
         if (responseJson.status === 'Success') {

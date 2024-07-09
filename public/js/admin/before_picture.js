@@ -19,7 +19,7 @@ const handleUpload = async (event) => {
     };
 
     try {
-        const response = await fetch('http://18.231.252.59/api/post/updateimage1', options);
+        const response = await fetch('https://angelespeluditos.cl/api//api/post/updateimage1', options);
         const responseJson = await response.json();
 
         if (responseJson.status === 'Success') {

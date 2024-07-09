@@ -25,7 +25,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
 
     try {
         
-        const response = await fetch('http://18.231.252.59/api/post/updateimage2', options);
+        const response = await fetch('https://angelespeluditos.cl/api//api/post/updateimage2', options);
         const responseJson = await response.json();
 
         if (response.ok) {

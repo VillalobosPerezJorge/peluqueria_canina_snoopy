@@ -11,7 +11,7 @@ window.onload = async () => {
 
 
     try {
-        const response = await fetch(`http://18.231.252.59/api/post/listPosts/${windowPage}`);
+        const response = await fetch(`https://angelespeluditos.cl/api//api/post/listPosts/${windowPage}`);
         const responseJson = await response.json();
         const data = responseJson.data;
         const posts = data.posts;
@@ -22,8 +22,8 @@ window.onload = async () => {
         const elementosHTML = posts.map(post => `<!-- Galería-->
       <div class="card d-flex flex-column gap-1 justify-content-center card-responsive">
         <img-comparison-slider style="width: 95%; max-height: 360px; margin-top: 10px; border-radius: 15px;">
-          <img slot="first" src="http://18.231.252.59/api/post/showImage/${post._id}/1" style="width: 100%; aspect-ratio: 3/2; object-fit: cover" />
-          <img slot="second" src="http://18.231.252.59/api/post/showImage/${post._id}/2" style="width: 100%; aspect-ratio: 3/2; object-fit: cover" />
+          <img slot="first" src="https://angelespeluditos.cl/api//api/post/showImage/${post._id}/1" style="width: 100%; aspect-ratio: 3/2; object-fit: cover" />
+          <img slot="second" src="https://angelespeluditos.cl/api//api/post/showImage/${post._id}/2" style="width: 100%; aspect-ratio: 3/2; object-fit: cover" />
         </img-comparison-slider>
         <div class="card-body text-center">
           <p class="card-text my-1 fst-italic fs-6">(Antes / Después)</p>
