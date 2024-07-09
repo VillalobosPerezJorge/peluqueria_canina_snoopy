@@ -3,7 +3,7 @@ const verify_admin_server_side = async () => {
     const token = localStorage.token;
 
     try {
-        const checkadmin = await fetch('http://localhost:3000/api/user/isAdmin', {
+        const checkadmin = await fetch('http://angelespeluditos.cl:3000/api/user/isAdmin', {
             method: 'GET',
             mode: 'cors',
             headers: {

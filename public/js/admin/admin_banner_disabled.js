@@ -5,7 +5,7 @@ const cargarBanners = async () => {
   const token = localStorage.getItem('token');
 
   try {
-      const response = await fetch('http://localhost:3000/api/banner/listDisabled', {
+      const response = await fetch('http://angelespeluditos.cl:3000/api/banner/listDisabled', {
           method: 'GET',
           mode: 'cors',
           headers: {
@@ -23,7 +23,7 @@ const cargarBanners = async () => {
 
       let elementosHTML = banners.map(banner => `
           <div class="card d-flex flex-column gap-1 justify-content-center card-responsive">
-              <img src="http://localhost:3000/api/banner/showimage/${banner._id}" style="width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 15px;">
+              <img src="http://angelespeluditos.cl:3000/api/banner/showimage/${banner._id}" style="width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 15px;">
               <div class="card-body text-center">
                   <p class="title card-text fw-bold fs-3 my-3">${banner.title}</p>
                   <p class="description card-text fs-4 my-3">${banner.description}</p>
@@ -72,7 +72,7 @@ const cargarBanners = async () => {
                   const bannerId = e.target.value;
                   e.preventDefault();
                   try {
-                      const response = await fetch(`http://localhost:3000/api/banner/delete/${bannerId}`, {
+                      const response = await fetch(`http://angelespeluditos.cl:3000/api/banner/delete/${bannerId}`, {
                           method: 'POST',
                           mode: 'cors',
                           headers: {
@@ -113,7 +113,7 @@ const cargarBanners = async () => {
                   const bannerId = e.target.value;
                   e.preventDefault();
                   try {
-                      const response = await fetch(`http://localhost:3000/api/banner/changeStatus/${bannerId}`, {
+                      const response = await fetch(`http://angelespeluditos.cl:3000/api/banner/changeStatus/${bannerId}`, {
                           method: 'PATCH',
                           mode: 'cors',
                           headers: {

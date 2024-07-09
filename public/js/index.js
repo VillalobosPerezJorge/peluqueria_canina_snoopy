@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const carouselIndicators = document.querySelector('.carousel-indicators');
     const carouselPrevButton = document.querySelector('.carousel-control-prev');
     const carouselNextButton = document.querySelector('.carousel-control-next');
-    const apiUrl = 'http://localhost:3000/api/banner/list';
+    const apiUrl = 'http://angelespeluditos.cl:3000/api/banner/list';
     const defaultImageUrl = '/public/images/perro1.jpg'; // Ruta de la imagen por defecto
 
     
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if(index >= 0 && index < 5){
 
                     let bannerString = index == 0 ? `<div class="carousel-item active">
-                        <img src="http://localhost:3000/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                        <img src="http://angelespeluditos.cl:3000/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
                     </div>` : `<div class="carousel-item">
-                        <img src="http://localhost:3000/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
+                        <img src="http://angelespeluditos.cl:3000/api/banner/showimage/${banner._id}" class="d-block w-100" alt="${banner.title}" id="carousel_${index + 1}">
                     </div>`
     
                     let indicatorString = index == 0 ? `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"
@@ -93,13 +93,13 @@ const insertarPerroDelMes = async () => {
     const perroDelMesDatos = document.querySelector('#datos-perro');
 
     try {
-        const response = await fetch('http://localhost:3000/api/post/findSelected');
+        const response = await fetch('http://angelespeluditos.cl:3000/api/post/findSelected');
         const responseJson = await response.json();
 
         const postId = responseJson.post._id;
         const postTitle = responseJson.post.title;
         const postDescription = responseJson.post.description;
-        perroDelMesDiv.innerHTML = `<img class="img-fluid w-100" src="http://localhost:3000/api/post/showImage/${postId}/2" alt="imagen del perro del mes" style="border-radius: 15px 50px; box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5)">`
+        perroDelMesDiv.innerHTML = `<img class="img-fluid w-100" src="http://angelespeluditos.cl:3000/api/post/showImage/${postId}/2" alt="imagen del perro del mes" style="border-radius: 15px 50px; box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5)">`
         perroDelMesNombre.innerHTML = `<h2 class="subtitle">¡Felicidades, ${postTitle}!</h2>`
         perroDelMesDatos.innerHTML = `<h4>¿Qué sabemos del Ángel Peludito de este mes?</h4><br><p>${postDescription}</p>`
     } catch (error) {

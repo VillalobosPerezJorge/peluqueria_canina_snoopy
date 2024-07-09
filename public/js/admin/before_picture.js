@@ -19,7 +19,7 @@ const handleUpload = async (event) => {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/post/updateimage1', options);
+        const response = await fetch('http://angelespeluditos.cl:3000/api/post/updateimage1', options);
         const responseJson = await response.json();
 
         if (responseJson.status === 'Success') {
