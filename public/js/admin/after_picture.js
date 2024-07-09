@@ -11,11 +11,10 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
     formData.append('image', imageFile);
 
     const options = {
-        method: 'PATCH', 
+        method: 'POST', 
         mode: 'cors', 
         headers: {
-            'Authorization': token,
-            
+            'Authorization': token
         },
         body: formData, 
     };
@@ -26,7 +25,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
 
     try {
         
-        const response = await fetch('http://18.231.252.59/api/post/updateimage2', options);
+        const response = await fetch('http://localhost:3000/api/post/updateimage2', options);
         const responseJson = await response.json();
 
         if (response.ok) {
@@ -36,6 +35,9 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
              // Muestra el postId en consola
             console.log('ID del post en localStorage:', postId);
             Swal.fire('Success', responseJson.message, 'success');
+
+            localStorage.removeItem('postId');
+
             window.location.href = `/admin?postId=${postId}`;
             });
         } else {

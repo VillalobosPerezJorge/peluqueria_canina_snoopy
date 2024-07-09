@@ -27,7 +27,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
     
 
     try {
-        const response = await fetch('http://18.231.252.59/api/post/register', options)
+        const response = await fetch('http://localhost:3000/api/post/register', options)
         const responseJson = await response.json();
 
         if (response.ok) {
