@@ -14,7 +14,7 @@ const cargarBannersActivos = async (windowPage) => {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`http://angelespeluditos.cl:3000/api/banner/list/${windowPage}`, {
+        const response = await fetch(`https://angelespeluditos.cl/api/api/banner/list/${windowPage}`, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -31,7 +31,7 @@ const cargarBannersActivos = async (windowPage) => {
 
         const elementosHTML = banners.map(banner => `<!-- Galería-->
             <div class="card d-flex flex-column gap-1 justify-content-center card-responsive">
-                <img src="http://angelespeluditos.cl:3000/api/banner/showImage/${banner._id}" style="width: 95%; max-height: 360px; margin-top: 10px; border-radius: 15px; object-fit: cover;" />
+                <img src="https://angelespeluditos.cl/api/api/banner/showImage/${banner._id}" style="width: 95%; max-height: 360px; margin-top: 10px; border-radius: 15px; object-fit: cover;" />
                 <div class="card-body text-center">
                     <p class="title card-text fw-bold fs-3 my-3">${banner.title}</p>
                     <p class="description card-text fs-4 my-3">${banner.description}</p>
@@ -119,7 +119,7 @@ const cargarBannersActivos = async (windowPage) => {
                     e.preventDefault();
 
                     try {
-                        const response = await fetch(`http://angelespeluditos.cl:3000/api/banner/delete/${bannerId}`, {
+                        const response = await fetch(`https://angelespeluditos.cl/api/api/banner/delete/${bannerId}`, {
                             method: 'POST',
                             mode: 'cors',
                             headers: {
@@ -148,7 +148,7 @@ const cargarBannersActivos = async (windowPage) => {
                     e.preventDefault();
 
                     try {
-                        const response = await fetch(`http://angelespeluditos.cl:3000/api/banner/changeStatus/${bannerId}`, {
+                        const response = await fetch(`https://angelespeluditos.cl/api/api/banner/changeStatus/${bannerId}`, {
                             method: 'PATCH',
                             mode: 'cors',
                             headers: {

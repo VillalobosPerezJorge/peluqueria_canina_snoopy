@@ -21,7 +21,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
     };
 
     try {
-        const response = await fetch('http://angelespeluditos.cl:3000/api/banner/register', options);
+        const response = await fetch('https://angelespeluditos.cl/api/api/banner/register', options);
         const responseJson = await response.json();
 
         console.log('Response JSON:', responseJson); // Depuración de la respuesta

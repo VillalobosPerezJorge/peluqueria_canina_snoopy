@@ -22,7 +22,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
     console.log(formData)
     try {
         // Incluye el postId en la URL
-        const response = await fetch('http://angelespeluditos.cl:3000/api/banner/updateimage', options);
+        const response = await fetch('https://angelespeluditos.cl/api/api/banner/updateimage', options);
         const responseJson = await response.json();
 
         if (responseJson.status === 'Success') {
