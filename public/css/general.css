@@ -40,6 +40,12 @@ body {
     margin-bottom: 10px;
 }
 
+.small {
+    /* font-style: italic !important; */
+    font-size: 3rem !important;
+    margin-top: -5.5rem !important;
+}
+
 .info {
     color: red !important;
     font-style: italic !important;
