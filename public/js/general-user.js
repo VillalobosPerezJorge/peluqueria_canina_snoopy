@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const direccion = localStorage.getItem('address');
      
       const whatsappMessage = `Hola, soy ${nombre} ${apellido}, vivo en ${direccion}. Y me gustaría agendar una hora con ustedes para mi pelud@! Muchas gracias`;
-      const whatsappLink = `https://api.whatsapp.com/send?autoload=1&app_absent=0&text=${encodeURIComponent(whatsappMessage)}&phone=573173461294`;
+      const whatsappLink = `https://api.whatsapp.com/send?autoload=1&app_absent=0&text=${encodeURIComponent(whatsappMessage)}&phone=56920307965`;
       
 
       authButtons.innerHTML = role == 'role-admin' ?  `

@@ -5,7 +5,7 @@ function obtenerDatos() {
     console.log("Obteniendo datos...");
 }
 
-//AL INICIAR GATILLARA Esto
+//AL INICIAR GATILLARÁ ESTO
 $(function () {
     obtenerDatos()
 });
