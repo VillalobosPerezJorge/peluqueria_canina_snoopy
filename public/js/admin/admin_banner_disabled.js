@@ -73,7 +73,7 @@ const cargarBanners = async () => {
                   e.preventDefault();
                   try {
                       const response = await fetch(`https://angelespeluditos.cl/api//api/banner/delete/${bannerId}`, {
-                          method: 'POST',
+                          method: 'DELETE',
                           mode: 'cors',
                           headers: {
                               'Authorization': token

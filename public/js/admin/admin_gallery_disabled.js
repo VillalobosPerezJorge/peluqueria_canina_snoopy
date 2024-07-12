@@ -118,7 +118,7 @@ const cargarPosts = async (windowPage) => {
             try {
               const response = await fetch(`https://angelespeluditos.cl/api//api/post/delete/${postId}`,
                 {
-                  method: 'Post',
+                  method: 'DELETE',
                   mode: 'cors',
                   headers: {
                     'Authorization': token

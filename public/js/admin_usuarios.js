@@ -182,7 +182,7 @@ const eliminarUsuario = async (userId) => {
 
     try {
         const response = await fetch(`https://angelespeluditos.cl/api//api/user/delete/${userId}`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: {
                 'Content-type': 'application/json; charset=utf-8',
                 'Authorization': token
