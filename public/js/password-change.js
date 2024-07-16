@@ -41,7 +41,7 @@ btn_cambiar.addEventListener('click', async (event) => {
     }
 
     try {
-        const response = await fetch(`https://angelespeluditos.cl/api//api/user/passwordReset/${token}`, options);
+        const response = await fetch(`https://angelespeluditos.cl/api/api/user/passwordReset/${token}`, options);
         const response_json = await response.json();
 
         if(response_json.status == 'Success'){

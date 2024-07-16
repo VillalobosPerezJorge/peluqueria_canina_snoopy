@@ -3,7 +3,7 @@ window.onload = async () => {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`https://angelespeluditos.cl/api//api/post/find/${postId}`, {
+        const response = await fetch(`https://angelespeluditos.cl/api/api/post/find/${postId}`, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -52,7 +52,7 @@ document.getElementById('editarPostForm').addEventListener('submit', async (even
     };
 
     try {
-        const response = await fetch(`https://angelespeluditos.cl/api//api/post/update/${postId}`, options);
+        const response = await fetch(`https://angelespeluditos.cl/api/api/post/update/${postId}`, options);
         const responseJson = await response.json();
 
         if (responseJson.status === 'Success') {

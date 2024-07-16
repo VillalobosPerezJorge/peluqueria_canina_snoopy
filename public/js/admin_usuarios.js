@@ -19,7 +19,7 @@ const cambiarRolUsuario = async (userId) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
     try {
-        const response = await fetch(`https://angelespeluditos.cl/api//api/user/changeRole/${userId}`, {
+        const response = await fetch(`https://angelespeluditos.cl/api/api/user/changeRole/${userId}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json; charset=utf-8',
@@ -96,7 +96,7 @@ const cambiarRolUsuario = async (userId) => {
 
 
         try {
-            const response = await fetch(`https://angelespeluditos.cl/api//api/user/update/${userId}`, {
+            const response = await fetch(`https://angelespeluditos.cl/api/api/user/update/${userId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'application/json; charset=utf-8',
@@ -152,7 +152,7 @@ const obtenerListaUsuarios = async () => {
     const windowPage = Number.parseInt(windowURLSplitted[windowURLSplitted.length - 1]);
 
     try {
-        const response = await fetch(`https://angelespeluditos.cl/api//api/user/listUsers/${windowPage}`, {
+        const response = await fetch(`https://angelespeluditos.cl/api/api/user/listUsers/${windowPage}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=utf-8',
@@ -181,7 +181,7 @@ const eliminarUsuario = async (userId) => {
 
 
     try {
-        const response = await fetch(`https://angelespeluditos.cl/api//api/user/delete/${userId}`, {
+        const response = await fetch(`https://angelespeluditos.cl/api/api/user/delete/${userId}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json; charset=utf-8',

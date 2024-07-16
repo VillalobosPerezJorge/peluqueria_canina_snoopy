@@ -27,7 +27,7 @@ document.querySelector('#btn-upload').addEventListener('click', async (event) =>
     
 
     try {
-        const response = await fetch('https://angelespeluditos.cl/api//api/post/register', options)
+        const response = await fetch('https://angelespeluditos.cl/api/api/post/register', options)
         const responseJson = await response.json();
 
         if (response.ok) {
