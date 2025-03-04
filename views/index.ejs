@@ -1,127 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Peluquería Canina Snoopy</title>
+  <title>Peluquería Canina Ángeles Peluditos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/public/styles.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
-
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
-  </style>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Peluquería Canina Snoopy</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Sobre nosotros</a></li>
-        <li><a href="#">Nuestros trabajos</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
-        <div class="carousel-caption">
-          
-        </div>      
-      </div>
-
-      <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-        <div class="carousel-caption">
-          
-        </div>      
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
-<div class="container text-center">    
-  <h3>What We Do</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
-    </div>
-    <div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-    <div class="col-sm-4">
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-    </div>
-  </div>
-</div><br>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+  <link rel="stylesheet" href="../public/css/index.css">
+
+
+<!-- Navigation bar -->
+  <%- include('./partials/navigation.ejs') %>
+<!-- Navigation bar -->
+
+
+<div class="container principal">
+  <div id="main" class="container py-5">
+  
+    <!-- Carrusel -->
+    <h1 class="title text-center my-5">Bienvenido a Ángeles Peluditos!</h1>
+    <h2 class="title small text-center my-5">Peluquería Canina</h2>
+  
+    <div id="carouselDiv" class="mx-auto mb-5">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://angelespeluditos.cl/api/api/banner/showimage" class="d-block w-100" alt="default image" id="carousel_1">
+          </div>
+        </div>
+
+        <button class="carousel-control-prev hidden_btn" name="prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next hidden_btn" name="next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- Fin Carrusel -->
+  
+    <!-- Perro del mes -->
+    <div class="container-fluid pb-5">
+      <div class="col-lg-12 text-center my-2">
+        <h1 class="title">Nuestro perrito del mes</h1>
+        <h2 class="mb-5" style="color: #DA0E83;">
+          ¡Descubre si tu peludito es nuestro destacado del mes!
+        </h2>
+      </div>
+      <div class="row justify-content-center pb-2">
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-8" id="perro-del-mes">
+              <img class="img-fluid" src="https://www.angelespeluditos.cl/api/api/post/showimage" alt="Perro del mes" style="border-radius: 15px;">
+            </div>
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+              <div id="nombre-perro" class="mb-3 text-center"></div>
+              <div id="datos-perro" class="mb-3 text-center"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin perro del mes -->
+    </div>
+
+</div>
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- Fin Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/js/general-user.js"></script>
+
+    <!-- Script para funcionamiento del banner/Perro del mes-->
+    <script src="../public/js/index.js"></script>
 
 </body>
+
 </html>

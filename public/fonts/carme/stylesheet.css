@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Carme';
+    src: url('Carme.eot');
+    src: local('Carme Regular'), local('Carme'),
+        url('Carme.eot?#iefix') format('embedded-opentype'),
+        url('Carme.woff2') format('woff2'),
+        url('Carme.woff') format('woff'),
+        url('Carme.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
