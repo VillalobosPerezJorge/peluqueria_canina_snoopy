@@ -1,0 +1,48 @@
+
+body{
+    text-justify: auto;
+    font-family: 'Lucida Sans';
+    background-image: url(/public/images/patron_patitas\ 70x70.png);
+}
+
+li a:hover {
+    background-color: #aadad3;
+}
+.container{
+    background-color: #fafcfb;    
+    text-align:justify;
+}
+.row{
+    align-items: center;
+}
+h1,h2, h3{
+    color: palevioletred;
+}
+.divfoot{
+    background-color: palegoldenrod;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar {
+    margin: 0;
+    border-radius: 0;
+  }
+
+#btn-enviar{
+
+    box-shadow: 2px 2px 2px black;
+
+    &:hover {
+        text-shadow: 0px 0px 10px white;
+    }
+
+    &:active {
+        box-shadow: 0px 0px 10px black inset !important;
+    }
+}
